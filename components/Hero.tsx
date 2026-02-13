@@ -24,7 +24,7 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="font-serif text-6xl font-light tracking-tight sm:text-8xl md:text-9xl"
                 >
-                    Laura & Kyle
+                    Delali & Laura
                 </motion.h1>
 
                 <motion.div
@@ -35,7 +35,7 @@ export function Hero() {
                 >
                     <span>March 14th, 2026</span>
                     <span className="hidden h-2 w-2 rounded-full bg-wedding-gold sm:block" />
-                    <span>San Francisco, CA</span>
+                    <span>PIWC, Obuasi | Kunka New Site</span>
                 </motion.div>
             </div>
 

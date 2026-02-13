@@ -24,21 +24,22 @@ export default function Home() {
           <h2 className="mb-12 text-4xl font-serif text-wedding-charcoal dark:text-wedding-cream">The Details</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-wedding-gold/20 p-8 shadow-sm">
-              <h3 className="mb-4 text-xl font-medium">Ceremony</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">4:00 PM</p>
-              <p className="text-zinc-600 dark:text-zinc-400">Grace Cathedral</p>
-              <p className="text-zinc-600 dark:text-zinc-400">San Francisco, CA</p>
+              <h3 className="mb-4 text-xl font-medium">Traditional Wedding</h3>
+              <p className="text-zinc-600 dark:text-zinc-400">7:00 AM</p>
+              <p className="text-zinc-600 dark:text-zinc-400">Kokotuasi, Obuasi</p>
+              <p className="text-zinc-600 dark:text-zinc-400">Mr. Bosompem's House</p>
             </div>
             <div className="rounded-lg border border-wedding-gold/20 p-8 shadow-sm">
               <h3 className="mb-4 text-xl font-medium">Reception</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">6:00 PM</p>
-              <p className="text-zinc-600 dark:text-zinc-400">The Julia Morgan Ballroom</p>
-              <p className="text-zinc-600 dark:text-zinc-400">Cocktails, Dinner & Dancing</p>
+              <p className="text-zinc-600 dark:text-zinc-400">12:00 PM</p>
+              <p className="text-zinc-600 dark:text-zinc-400">PIWC, Obuasi</p>
+              <p className="text-zinc-600 dark:text-zinc-400">Kunka New Site</p>
             </div>
             <div className="rounded-lg border border-wedding-gold/20 p-8 shadow-sm">
-              <h3 className="mb-4 text-xl font-medium">Accommodations</h3>
-              <p className="text-zinc-600 dark:text-zinc-400">Fairmont San Francisco</p>
-              <p className="text-sm text-wedding-gold mt-2">Mention Laura & Kyle Wedding</p>
+              <h3 className="mb-4 text-xl font-medium">Thanks Giving</h3>
+              <p className="text-zinc-600 dark:text-zinc-400">8:00 AM</p>
+              <p className="text-zinc-600 dark:text-zinc-400">PIWC, Obuasi</p>
+              <p className="text-zinc-600 dark:text-zinc-400">Kunka New Site</p>
             </div>
           </div>
         </div>
@@ -55,7 +56,7 @@ export default function Home() {
       </section>
 
       <footer className="py-12 text-center text-sm text-wedding-charcoal/60 dark:text-wedding-cream/60">
-        <p>&copy; 2026 Laura & Kyle. All rights reserved.</p>
+        <p>&copy; 2026 Delali & Laura. All rights reserved.</p>
       </footer>
     </main>
   );
