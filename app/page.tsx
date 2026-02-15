@@ -9,8 +9,40 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { TextShimmer } from "@/components/TextShimmer";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: "Delali & Laura Wedding Celebration",
+    description:
+      "The wedding celebration of Delali Dogbevi and Laura Bosompem.",
+    startDate: "2026-03-14T07:00:00+00:00",
+    endDate: "2026-03-14T18:00:00+00:00",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: "PIWC, Obuasi",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Obuasi",
+        addressCountry: "GH",
+      },
+    },
+    image: "https://laurykel.pages.dev/images/Save the Date DL.jpg",
+    organizer: {
+      "@type": "Person",
+      name: "Delali Dogbevi & Laura Bosompem",
+    },
+  };
+
   return (
     <main className="relative min-h-screen bg-wedding-navy">
+      {/* JSON-LD Structured Data for Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Global floating gold particles */}
       <FloatingParticles />
 
