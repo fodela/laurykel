@@ -2,6 +2,66 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ThreeDMarquee } from "@/components/ui/3d-marquee";
+
+// Wedding-themed sample images from Unsplash (free, high-quality)
+const heroImages = [
+    // Column 1
+    "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", // wedding couple
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80", // wedding venue
+    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80", // couple sunset
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80", // rings close-up
+    "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80", // floral arrangement
+    "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80", // wedding cake
+    // Column 2
+    "https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600&q=80", // bouquet
+    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80", // bride portraits
+    "https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=600&q=80", // reception
+    "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&q=80", // couple dancing
+    "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80", // ring detail
+    "https://images.unsplash.com/photo-1519225421980-715cb0202128?w=600&q=80", // wedding details
+    // Column 3
+    "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80", // church ceremony
+    "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600&q=80", // bride
+    "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?w=600&q=80", // decoration
+    "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=600&q=80", // toast
+    "https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=600&q=80", // romantic
+    "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80", // wedding table
+    // Column 4
+    "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600&q=80", // first dance
+    "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80", // outdoor wedding
+    "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80", // couple walking
+    "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&q=80", // rings
+    "https://images.unsplash.com/photo-1521405305633-c75da82de189?w=600&q=80", // couple kiss
+    "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80", // flower wall
+    "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", // wedding couple
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80", // wedding venue
+    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80", // couple sunset
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80", // rings close-up
+    "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80", // floral arrangement
+    "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80", // wedding cake
+    // Column 2
+    "https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600&q=80", // bouquet
+    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80", // bride portraits
+    "https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=600&q=80", // reception
+    "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&q=80", // couple dancing
+    "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80", // ring detail
+    "https://images.unsplash.com/photo-1519225421980-715cb0202128?w=600&q=80", // wedding details
+    // Column 3
+    "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80", // church ceremony
+    "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600&q=80", // bride
+    "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?w=600&q=80", // decoration
+    "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=600&q=80", // toast
+    "https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=600&q=80", // romantic
+    "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80", // wedding table
+    // Column 4
+    "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600&q=80", // first dance
+    "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80", // outdoor wedding
+    "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80", // couple walking
+    "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&q=80", // rings
+    "https://images.unsplash.com/photo-1521405305633-c75da82de189?w=600&q=80", // couple kiss
+    "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80", // flower wall
+];
 
 export function Hero() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -13,14 +73,28 @@ export function Hero() {
 
     return (
         <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-wedding-charcoal">
-            {/* Background gradient layers */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-wedding-charcoal via-wedding-navy to-wedding-dark-teal" />
+            {/* 3D Marquee Background */}
+            <div className="absolute inset-0 z-0">
+                <ThreeDMarquee
+                    images={heroImages}
+                    className="h-full w-full rounded-none opacity-30"
+                />
+                {/* Dark gradient overlay to ensure text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-wedding-charcoal/70 via-wedding-navy/80 to-wedding-charcoal/90" />
+                {/* Radial vignette */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: "radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(10, 15, 26, 0.7) 100%)",
+                    }}
+                />
+            </div>
 
-            {/* Subtle radial glow */}
+            {/* Subtle radial gold glow */}
             <div
                 className="absolute inset-0 z-[1] opacity-30"
                 style={{
-                    background: "radial-gradient(ellipse at 50% 40%, rgba(200, 169, 81, 0.15) 0%, transparent 70%)",
+                    background: "radial-gradient(ellipse at 50% 40%, rgba(200, 169, 81, 0.12) 0%, transparent 70%)",
                 }}
             />
 

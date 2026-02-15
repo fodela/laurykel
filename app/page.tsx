@@ -81,10 +81,10 @@ export default function Home() {
               icon="🎊"
               delay={0}
             />
-            {/* Reception */}
+            {/* White Wedding */}
             <DetailCard
-              title="Reception"
-              time="12:00 PM"
+              title="White Wedding"
+              time="12:30 PM"
               location="PIWC, Obuasi"
               venue="Kunka New Site"
               icon="💒"
