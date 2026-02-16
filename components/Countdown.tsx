@@ -1,31 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
 interface TimeUnitProps {
     value: number;
     label: string;
 }
 
-function TimeUnit({ value, label }: TimeUnitProps) {
+const TimeUnit = React.memo(({ value, label }: TimeUnitProps) => {
     const display = value.toString().padStart(2, "0");
+    const [prevValue, setPrevValue] = useState(value);
+    const [isFlipping, setIsFlipping] = useState(false);
+
+    useEffect(() => {
+        if (value !== prevValue) {
+            setIsFlipping(true);
+            const timer = setTimeout(() => {
+                setPrevValue(value);
+                setIsFlipping(false);
+            }, 400); // Match animation duration
+            return () => clearTimeout(timer);
+        }
+    }, [value, prevValue]);
 
     return (
         <div className="flex flex-col items-center gap-3">
             <div className="glass-card glow-border relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl sm:h-28 sm:w-28">
-                <AnimatePresence mode="popLayout">
-                    <motion.span
+                <div className="relative h-full w-full">
+                    {/* Exit animation - old value */}
+                    {isFlipping && (
+                        <span className="countdown-flip-exit absolute inset-0 flex items-center justify-center font-mono text-3xl font-bold text-wedding-gold sm:text-5xl">
+                            {prevValue.toString().padStart(2, "0")}
+                        </span>
+                    )}
+                    {/* Enter animation - new value */}
+                    <span
                         key={value}
-                        initial={{ y: -30, opacity: 0, filter: "blur(4px)" }}
-                        animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                        exit={{ y: 30, opacity: 0, filter: "blur(4px)" }}
-                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="font-mono text-3xl font-bold text-wedding-gold sm:text-5xl"
+                        className={`${isFlipping ? 'countdown-flip-enter' : ''} absolute inset-0 flex items-center justify-center font-mono text-3xl font-bold text-wedding-gold sm:text-5xl`}
                     >
                         {display}
-                    </motion.span>
-                </AnimatePresence>
+                    </span>
+                </div>
 
                 {/* Subtle shine overlay */}
                 <div
@@ -40,7 +55,9 @@ function TimeUnit({ value, label }: TimeUnitProps) {
             </span>
         </div>
     );
-}
+});
+
+TimeUnit.displayName = "TimeUnit";
 
 export function Countdown() {
     const [timeLeft, setTimeLeft] = useState({
@@ -61,11 +78,24 @@ export function Countdown() {
             const difference = targetDate.getTime() - now.getTime();
 
             if (difference > 0) {
-                setTimeLeft({
+                const newTime = {
                     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                     hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                     minutes: Math.floor((difference / 1000 / 60) % 60),
                     seconds: Math.floor((difference / 1000) % 60),
+                };
+
+                // Only update state if values actually changed
+                setTimeLeft(prev => {
+                    if (
+                        prev.days !== newTime.days ||
+                        prev.hours !== newTime.hours ||
+                        prev.minutes !== newTime.minutes ||
+                        prev.seconds !== newTime.seconds
+                    ) {
+                        return newTime;
+                    }
+                    return prev; // No change, prevent re-render
                 });
             } else {
                 clearInterval(timer);
@@ -86,13 +116,7 @@ export function Countdown() {
             />
 
             <div className="container relative z-10 mx-auto px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center gap-12"
-                >
+                <div className="hero-fade-up flex flex-col items-center gap-12">
                     <div className="text-center">
                         <h2 className="font-heading text-lg font-light tracking-[0.3em] text-wedding-pale-gold/60 sm:text-xl">
                             COUNTING DOWN TO
@@ -103,29 +127,19 @@ export function Countdown() {
                     </div>
 
                     {isMounted && (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8"
-                        >
+                        <div className="countdown-fade-scale delay-200 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
                             <TimeUnit value={timeLeft.days} label="Days" />
                             <TimeUnit value={timeLeft.hours} label="Hours" />
                             <TimeUnit value={timeLeft.minutes} label="Minutes" />
                             <TimeUnit value={timeLeft.seconds} label="Seconds" />
-                        </motion.div>
+                        </div>
                     )}
 
-                    <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: 60 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className="gold-line"
-                        style={{ height: 1 }}
+                    <div
+                        className="hero-line-grow delay-300 gold-line"
+                        style={{ height: 1, width: 60 }}
                     />
-                </motion.div>
+                </div>
             </div>
         </section>
     );
