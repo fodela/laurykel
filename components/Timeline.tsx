@@ -78,7 +78,7 @@ function TimelineCard({
     return (
         <motion.div
             ref={ref}
-            className={`group relative mb-16 flex w-full items-center sm:mb-24 ${side === "left" ? "flex-row" : "flex-row-reverse"
+            className={`group relative mb-16 flex w-full items-center sm:mb-24 flex-row-reverse ${side === "left" ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
         >
             {/* Connection line from card to center */}
@@ -86,7 +86,7 @@ function TimelineCard({
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className={`absolute top-1/2 z-0 h-2 -translate-y-1/2 ${side === "left" ? "left-[42%]" : "right-[42%]"
+                className={`hidden md:block absolute top-1/2 z-0 h-2 -translate-y-1/2 ${side === "left" ? "left-[42%]" : "right-[42%]"
                     }`}
                 width="8%"
                 height="4"
@@ -135,7 +135,7 @@ function TimelineCard({
                     scale: 1.02,
                     transition: { duration: 0.3, ease: "easeOut" },
                 }}
-                className="glass-card group relative w-[42%] overflow-hidden rounded-2xl p-6 backdrop-blur-xl transition-all duration-500 hover:border-wedding-gold/40 hover:shadow-2xl hover:shadow-wedding-gold/10 sm:p-8"
+                className="glass-card group relative w-[calc(100%-4rem)] ml-16 md:ml-0 md:w-[42%] overflow-hidden rounded-2xl p-6 backdrop-blur-xl transition-all duration-500 hover:border-wedding-gold/40 hover:shadow-2xl hover:shadow-wedding-gold/10 sm:p-8"
                 style={{
                     background: "rgba(15, 23, 42, 0.6)",
                     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
@@ -188,7 +188,7 @@ function TimelineCard({
                 initial={{ scale: 0, opacity: 0, rotate: -180 }}
                 animate={isInView ? { scale: 1, opacity: 1, rotate: 0 } : {}}
                 transition={{ delay: 0.3, duration: 0.7, ease: [0.68, -0.55, 0.265, 1.55] }}
-                className="absolute left-1/2 z-20 flex -translate-x-1/2 items-center justify-center"
+                className="absolute left-8 md:left-1/2 z-20 flex -translate-x-1/2 items-center justify-center"
             >
                 {/* Outer glow ring */}
                 <motion.div
@@ -229,7 +229,7 @@ function TimelineCard({
             </motion.div>
 
             {/* Empty space for the other side */}
-            <div className="w-[42%]" />
+            <div className="hidden md:block w-[42%]" />
         </motion.div>
     );
 }
@@ -246,16 +246,16 @@ export function Timeline() {
 
     return (
         <div ref={containerRef} className="container mx-auto px-4 py-8">
-            <div className="relative flex flex-col items-center">
+            <div className="relative flex flex-col md:items-center">
                 {/* Background line (track) with glow */}
-                <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2">
+                <div className="absolute left-8 md:left-1/2 top-0 h-full w-1 -translate-x-1/2">
                     <div className="absolute inset-0 rounded-full bg-wedding-gold/5" />
                     <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-wedding-gold/15" />
                 </div>
 
                 {/* Animated line (fills on scroll) with enhanced glow */}
                 <motion.div
-                    className="absolute left-1/2 top-0 -translate-x-1/2"
+                    className="absolute left-8 md:left-1/2 top-0 -translate-x-1/2"
                     style={{ height: lineHeight }}
                 >
                     {/* Glow effect */}
@@ -296,61 +296,64 @@ export function Timeline() {
                 ))}
 
                 {/* End ring icon - enhanced */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.68, -0.55, 0.265, 1.55] }}
-                    className="relative z-20 mt-4 flex flex-col items-center"
-                >
-                    {/* Glow ring */}
+                <div className="relative z-20 mt-4 flex flex-col md:items-center w-full">
+                    {/* Icon Group - centered on line */}
                     <motion.div
-                        animate={{
-                            scale: [1, 1.3, 1],
-                            opacity: [0.4, 0.7, 0.4],
-                        }}
-                        transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                        className="absolute h-28 w-28 rounded-full bg-wedding-gold/20 blur-2xl"
-                    />
-
-                    {/* Main end icon */}
-                    <motion.div
-                        whileHover={{ scale: 1.15, rotate: 10 }}
-                        transition={{ duration: 0.4 }}
-                        className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-navy via-wedding-navy to-wedding-gold/20 text-4xl shadow-2xl shadow-wedding-gold/30"
-                        style={{
-                            boxShadow: "0 0 40px rgba(212, 175, 55, 0.4), inset 0 2px 8px rgba(212, 175, 55, 0.15)",
-                        }}
+                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: [0.68, -0.55, 0.265, 1.55] }}
+                        className="relative flex items-center justify-center ml-8 md:ml-0 -translate-x-1/2 md:translate-x-0"
                     >
-                        <motion.span
+                        {/* Glow ring */}
+                        <motion.div
                             animate={{
-                                scale: [1, 1.1, 1],
+                                scale: [1, 1.3, 1],
+                                opacity: [0.4, 0.7, 0.4],
                             }}
                             transition={{
-                                duration: 2.5,
+                                duration: 3,
                                 repeat: Infinity,
                                 ease: "easeInOut",
                             }}
+                            className="absolute h-28 w-28 rounded-full bg-wedding-gold/20 blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        />
+
+                        {/* Main end icon */}
+                        <motion.div
+                            whileHover={{ scale: 1.15, rotate: 10 }}
+                            transition={{ duration: 0.4 }}
+                            className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-navy via-wedding-navy to-wedding-gold/20 text-4xl shadow-2xl shadow-wedding-gold/30 relative z-10"
+                            style={{
+                                boxShadow: "0 0 40px rgba(212, 175, 55, 0.4), inset 0 2px 8px rgba(212, 175, 55, 0.15)",
+                            }}
                         >
-                            💒
-                        </motion.span>
+                            <motion.span
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                }}
+                                transition={{
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            >
+                                💒
+                            </motion.span>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Optional: "Our Wedding Day" text */}
+                    {/* text */}
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3, duration: 0.6 }}
-                        className="mt-6 max-w-md text-center font-serif text-base italic leading-relaxed text-wedding-gold/80"
+                        className="mt-6 font-serif text-base italic leading-relaxed text-wedding-gold/80 text-left ml-20 md:text-center md:ml-0 md:max-w-md"
                     >
                         One mystery remains: Will Particle go for the kiss, or will it be a classic hug? Find out on March 14, 2026.
                     </motion.p>
-                </motion.div>
+                </div>
             </div>
         </div>
     );

@@ -9,15 +9,42 @@ export function RSVP() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate network request
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setShowConfetti(true);
+        setError("");
+
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            questions: formData.get("questions"),
+        };
+
+        try {
+            const response = await fetch("/api/rsvp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to submit RSVP");
+            }
+
+            setSubmitted(true);
+            setShowConfetti(true);
+        } catch (err) {
+            setError("Something went wrong. Please try again or contact us directly.");
+            console.error("RSVP submission error:", err);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleConfettiComplete = useCallback(() => {
@@ -68,17 +95,28 @@ export function RSVP() {
                 transition={{ duration: 0.8 }}
                 className="glass-card flex flex-col gap-6 rounded-2xl p-8 sm:p-10"
             >
+                {/* Intro text */}
+                <div className="mb-2 text-center">
+                    <p className="font-serif text-lg text-wedding-cream/80">
+                        We&apos;d love to celebrate with you!
+                    </p>
+                    <p className="mt-2 text-sm text-wedding-cream/50">
+                        Please fill in your details below to confirm your attendance.
+                    </p>
+                </div>
+
                 {/* Name */}
                 <div>
                     <label
                         htmlFor="name"
                         className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
                     >
-                        Full Name
+                        Full Name *
                     </label>
                     <input
                         type="text"
                         id="name"
+                        name="name"
                         required
                         className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="Jane Doe"
@@ -91,80 +129,79 @@ export function RSVP() {
                         htmlFor="email"
                         className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
                     >
-                        Email Address
+                        Email Address *
                     </label>
                     <input
                         type="email"
                         id="email"
+                        name="email"
                         required
                         className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="jane@example.com"
                     />
                 </div>
 
-                {/* Attending */}
-                <div>
-                    <label className="mb-3 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50">
-                        Will you be attending?
-                    </label>
-                    <div className="flex gap-4">
-                        <label className="group flex cursor-pointer items-center gap-3 rounded-lg border border-wedding-gold/10 px-4 py-3 transition-all duration-300 hover:border-wedding-gold/25 hover:bg-wedding-gold/5">
-                            <input
-                                type="radio"
-                                name="attending"
-                                value="yes"
-                                required
-                                className="sr-only peer"
-                            />
-                            <div className="flex h-4 w-4 items-center justify-center rounded-full border border-wedding-gold/30 peer-checked:border-wedding-gold peer-checked:bg-wedding-gold transition-all">
-                                <div className="h-1.5 w-1.5 rounded-full bg-wedding-navy scale-0 peer-checked:scale-100 transition-transform" />
-                            </div>
-                            <span className="text-sm text-wedding-cream/70">Joyfully Accept</span>
-                        </label>
-                        <label className="group flex cursor-pointer items-center gap-3 rounded-lg border border-wedding-gold/10 px-4 py-3 transition-all duration-300 hover:border-wedding-gold/25 hover:bg-wedding-gold/5">
-                            <input
-                                type="radio"
-                                name="attending"
-                                value="no"
-                                required
-                                className="sr-only peer"
-                            />
-                            <div className="flex h-4 w-4 items-center justify-center rounded-full border border-wedding-gold/30 peer-checked:border-wedding-gold peer-checked:bg-wedding-gold transition-all">
-                                <div className="h-1.5 w-1.5 rounded-full bg-wedding-navy scale-0 peer-checked:scale-100 transition-transform" />
-                            </div>
-                            <span className="text-sm text-wedding-cream/70">Regretfully Decline</span>
-                        </label>
-                    </div>
-                </div>
-
-                {/* Guests */}
+                {/* Phone */}
                 <div>
                     <label
-                        htmlFor="guests"
+                        htmlFor="phone"
                         className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
                     >
-                        Number of Guests
+                        Phone Number *
                     </label>
-                    <select
-                        id="guests"
-                        className="input-glow w-full appearance-none rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
-                    >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        placeholder="+1 (555) 123-4567"
+                    />
                 </div>
+
+                {/* Questions */}
+                <div>
+                    <label
+                        htmlFor="questions"
+                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
+                    >
+                        Questions or Special Requests
+                    </label>
+                    <textarea
+                        id="questions"
+                        name="questions"
+                        rows={4}
+                        className="input-glow w-full resize-none rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        placeholder="Any dietary restrictions, accessibility needs, or questions for us..."
+                    />
+                </div>
+
+                {/* Error message */}
+                {error && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+                    >
+                        {error}
+                    </motion.div>
+                )}
 
                 {/* Submit */}
                 <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-wedding-gold/30 bg-wedding-gold/10 px-8 py-3.5 font-mono text-sm uppercase tracking-[0.2em] text-wedding-gold transition-all duration-300 hover:bg-wedding-gold/20 hover:border-wedding-gold/50 disabled:opacity-50"
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg border border-wedding-gold/30 bg-wedding-gold/10 px-8 py-3.5 font-mono text-sm uppercase tracking-[0.2em] text-wedding-gold transition-all duration-300 hover:bg-wedding-gold/20 hover:border-wedding-gold/50 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                     {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                    {isSubmitting ? "Sending..." : "Send RSVP"}
+                    {isSubmitting ? "Sending..." : "Confirm Attendance"}
                 </motion.button>
+
+                <p className="text-center text-xs text-wedding-cream/30">
+                    * Required fields
+                </p>
             </motion.form>
         </div>
     );
