@@ -10,7 +10,7 @@
     "optimize-og": "node scripts/optimize-og-image.mjs",
     "pages:build": "npx @cloudflare/next-on-pages",
     "preview": "npm run pages:build && wrangler pages dev",
-    "deploy": "npm run pages:build && wrangler pages deploy"
+    "deploy": "npm run build && npx wrangler pages deploy out --commit-dirty=true"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -23,7 +23,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "save-pixels": "^2.3.6",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.1"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
