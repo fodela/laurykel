@@ -55,7 +55,9 @@ export const ThreeDMarquee = ({
                       }}
                       key={imageIndex + image}
                       src={image}
-                      alt={`Image ${imageIndex + 1}`}
+                      alt={`Wedding image ${imageIndex + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="aspect-[970/700] rounded-lg object-cover ring ring-wedding-gold/10 hover:shadow-2xl"
                       width={970}
                       height={700}
