@@ -103,6 +103,9 @@ export function RSVP() {
                     <p className="mt-2 text-sm text-wedding-cream/50">
                         Please fill in your details below to confirm your attendance.
                     </p>
+                    <p className="mt-3 text-xs text-wedding-cream/40">
+                        or contact: Samuel 0598436661 | Stephanie 0597136307
+                    </p>
                 </div>
 
                 {/* Name */}

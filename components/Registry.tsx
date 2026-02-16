@@ -1,34 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gift } from "lucide-react";
-
-const registries = [
-    {
-        name: "Crate & Barrel",
-        url: "#",
-        logo: "CB",
-        color: "from-amber-500/5 to-amber-600/5",
-    },
-    {
-        name: "Williams Sonoma",
-        url: "#",
-        logo: "WS",
-        color: "from-emerald-500/5 to-emerald-600/5",
-    },
-    {
-        name: "Amazon",
-        url: "#",
-        logo: "AM",
-        color: "from-blue-500/5 to-blue-600/5",
-    },
-    {
-        name: "Honeymoon Fund",
-        url: "#",
-        logo: "HF",
-        color: "from-rose-500/5 to-rose-600/5",
-    },
-];
+import { Gift, Smartphone } from "lucide-react";
 
 export function Registry() {
     return (
@@ -47,47 +20,48 @@ export function Registry() {
                     <Gift className="h-10 w-10 text-wedding-gold/60" />
                 </motion.div>
                 <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-cream/40 sm:text-lg">
-                    Your presence is enough of a present to us! But for those who wish to contribute, we have created registries at the following stores.
+                    Your presence is enough of a present to us! But for those who wish to contribute, your gifts are better preferred as cash
+                </p>
+                <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-cream/40 sm:text-lg">
+                    For gifts in kind, a gift table will be set up at the venue
                 </p>
             </motion.div>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-                {registries.map((store, index) => (
-                    <motion.a
-                        key={store.name}
-                        href={store.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                            delay: index * 0.12,
-                            duration: 0.6,
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                        }}
-                        whileHover={{
-                            y: -8,
-                            scale: 1.05,
-                            transition: { duration: 0.3 },
-                        }}
-                        className="glass-card group relative flex h-32 w-32 flex-col items-center justify-center gap-3 rounded-2xl transition-all duration-500 hover:border-wedding-gold/25 sm:h-36 sm:w-36"
+            <motion.div
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+                className="flex flex-col items-center justify-center"
+            >
+                <div className="glass-card group relative flex flex-col items-center justify-center gap-4 rounded-2xl px-8 py-6 transition-all duration-500 hover:border-wedding-gold/25 sm:px-12 sm:py-8">
+                    {/* Hover glow */}
+                    <div className="absolute inset-0 rounded-2xl bg-wedding-gold/0 transition-all duration-500 group-hover:bg-wedding-gold/5" />
+
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative z-10"
                     >
-                        {/* Hover glow */}
-                        <div className="absolute inset-0 rounded-2xl bg-wedding-gold/0 transition-all duration-500 group-hover:bg-wedding-gold/5" />
+                        <Smartphone className="h-8 w-8 text-wedding-gold/60" />
+                    </motion.div>
 
-                        <span className="relative z-10 font-serif text-2xl font-bold text-wedding-cream/80 transition-colors duration-300 group-hover:text-wedding-gold sm:text-3xl">
-                            {store.logo}
+                    <div className="relative z-10 flex flex-col items-center gap-2">
+                        <span className="font-mono text-xs tracking-widest text-wedding-cream/30 sm:text-sm">
+                            MOBILE MONEY
                         </span>
-                        <span className="relative z-10 font-mono text-[10px] tracking-widest text-wedding-cream/30 transition-colors duration-300 group-hover:text-wedding-cream/60">
-                            {store.name}
+                        <span className="font-serif text-2xl font-bold text-wedding-cream/80 transition-colors duration-300 group-hover:text-wedding-gold sm:text-3xl">
+                            0555304124
                         </span>
+                    </div>
 
-                        {/* Bottom glow line */}
-                        <div className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-wedding-gold/40 transition-all duration-500 group-hover:w-3/4" />
-                    </motion.a>
-                ))}
-            </div>
+                    {/* Bottom glow line */}
+                    <div className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-wedding-gold/40 transition-all duration-500 group-hover:w-3/4" />
+                </div>
+            </motion.div>
         </div>
     );
 }

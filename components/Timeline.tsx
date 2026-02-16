@@ -47,12 +47,7 @@ const events: TimelineEvent[] = [
         description: "Thinking it was a random photoshoot, Laura was surprised when Particle dropped to one knee. With a prayer in his heart, he asked, and she said yes!",
         icon: "💍",
     },
-    {
-        year: "Today",
-        title: "House Officers",
-        description: "They are both House Officers in the same hospital and department, living out their dream as colleagues and soulmates who truly do everything together.",
-        icon: "🏥",
-    },
+
 ];
 
 function TimelineCard({
