@@ -71,7 +71,7 @@ export function Countdown() {
 
     useEffect(() => {
         setIsMounted(true);
-        const targetDate = new Date("2026-03-14T07:00:00");
+        const targetDate = new Date("2026-03-14T13:00:00");
 
         const timer = setInterval(() => {
             const now = new Date();

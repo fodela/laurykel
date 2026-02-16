@@ -59,8 +59,7 @@ export default function Home() {
       },
     ],
     image: [
-      "https://laurykel.pages.dev/images/photo_5769543325676845275_y.jpg",
-      "https://laurykel.pages.dev/images/photo_5785337522450796096_y.jpg",
+      "https://laurykel.pages.dev/savethedate-og.jpg",
       "https://laurykel.pages.dev/images/logo.png",
     ],
     organizer: [
@@ -296,7 +295,7 @@ export default function Home() {
             {/* White Wedding */}
             <DetailCard
               title="White Wedding"
-              time="12:30 PM"
+              time="1:00 PM"
               location="PIWC, Obuasi"
               venue="Kunka New Site"
               icon="💒"

@@ -72,17 +72,10 @@ export const metadata: Metadata = {
     countryName: "Ghana",
     images: [
       {
-        url: "https://laurykel.pages.dev/images/photo_5769543325676845275_y.jpg",
-        width: 1280,
-        height: 853,
-        alt: "Delali & Laura Wedding Celebration — March 14, 2026 in Obuasi, Ghana",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://laurykel.pages.dev/images/photo_5785337522450796096_y.jpg",
-        width: 1280,
-        height: 853,
-        alt: "Delali & Laura Wedding — Join us in celebrating our special day",
+        url: "https://laurykel.pages.dev/savethedate-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Delali & Laura - Save The Date - March 14, 2026",
         type: "image/jpeg",
       },
     ],
@@ -92,7 +85,7 @@ export const metadata: Metadata = {
     title: "Delali & Laura — Wedding Celebration | March 14, 2026",
     description:
       "Join the celebration! Delali Dogbevi & Laura Bosompem — March 14th, 2026 in Obuasi, Ghana. Traditional ceremony, white wedding & thanksgiving.",
-    images: ["https://laurykel.pages.dev/images/photo_5769543325676845275_y.jpg"],
+    images: ["https://laurykel.pages.dev/savethedate-og.jpg"],
     creator: "@delaliandlaura",
   },
   robots: {
