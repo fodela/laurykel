@@ -346,9 +346,9 @@ export function Timeline() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3, duration: 0.6 }}
-                        className="mt-4 font-serif text-sm tracking-wider text-wedding-gold/70"
+                        className="mt-6 max-w-md text-center font-serif text-base italic leading-relaxed text-wedding-gold/80"
                     >
-                        Our Wedding Day
+                        One mystery remains: Will Particle go for the kiss, or will it be a classic hug? Find out on March 14, 2026.
                     </motion.p>
                 </motion.div>
             </div>
