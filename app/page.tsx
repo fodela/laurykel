@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Timeline } from "@/components/Timeline";
 import { RSVP } from "@/components/RSVP";
 import { Registry } from "@/components/Registry";
+import { Gallery } from "@/components/Gallery";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { SectionDivider } from "@/components/SectionDivider";
 import { TextShimmer } from "@/components/TextShimmer";
@@ -177,12 +178,18 @@ export default function Home() {
       {
         "@type": "ListItem",
         position: 4,
+        name: "Gallery",
+        item: "https://laurykel.pages.dev/#gallery",
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
         name: "RSVP",
         item: "https://laurykel.pages.dev/#rsvp",
       },
       {
         "@type": "ListItem",
-        position: 5,
+        position: 6,
         name: "Registry",
         item: "https://laurykel.pages.dev/#registry",
       },
@@ -309,7 +316,35 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <SectionDivider variant="simple" />
+      <SectionDivider variant="flourish" />
+
+      {/* Gallery */}
+      <section id="gallery" className="relative py-24 sm:py-32" aria-labelledby="gallery-heading">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: "radial-gradient(ellipse at 30% 50%, rgba(200, 169, 81, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(26, 58, 58, 0.15) 0%, transparent 60%)",
+          }}
+        />
+        <div className="relative z-10">
+          <div className="mb-16 text-center sm:mb-20">
+            <TextShimmer
+              as="h2"
+              id="gallery-heading"
+              className="font-serif text-4xl font-light sm:text-5xl"
+            >
+              Our Moments
+            </TextShimmer>
+            <p className="mt-4 font-heading text-base text-wedding-cream/30">
+              A glimpse into our journey together
+            </p>
+          </div>
+          <Gallery />
+        </div>
+      </section>
+
+      {/* Divider */}
+      <SectionDivider variant="botanical" />
 
       {/* RSVP */}
       <section id="rsvp" className="relative py-24 sm:py-32" aria-labelledby="rsvp-heading">
