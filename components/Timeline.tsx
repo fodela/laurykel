@@ -55,14 +55,6 @@ const events: TimelineEvent[] = [
     },
 ];
 
-// Spring animation config for smooth, natural motion
-const springTransition = {
-    type: "spring",
-    stiffness: 100,
-    damping: 20,
-    mass: 1,
-};
-
 function TimelineCard({
     event,
     index,
@@ -117,25 +109,22 @@ function TimelineCard({
             <motion.div
                 initial={{
                     opacity: 0,
-                    x: side === "left" ? -80 : 80,
-                    rotateY: side === "left" ? -8 : 8,
+                    x: side === "left" ? -40 : 40,
                 }}
                 animate={
                     isInView
-                        ? { opacity: 1, x: 0, rotateY: 0 }
+                        ? { opacity: 1, x: 0 }
                         : {}
                 }
                 transition={{
-                    duration: 0.9,
-                    delay: 0.2,
-                    ease: [0.22, 1, 0.36, 1],
+                    duration: 0.5,
+                    ease: "easeOut",
                 }}
                 whileHover={{
                     y: -8,
                     scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeOut" },
                 }}
-                className="glass-card group relative w-[calc(100%-4rem)] ml-16 md:ml-0 md:w-[42%] overflow-hidden rounded-2xl p-6 backdrop-blur-xl transition-all duration-500 hover:border-wedding-gold/40 hover:shadow-2xl hover:shadow-wedding-gold/10 sm:p-8"
+                className="glass-card group relative w-[calc(100%-4rem)] ml-16 md:ml-0 md:w-[42%] overflow-hidden rounded-2xl p-6 backdrop-blur-xl transition-[border-color,box-shadow] duration-300 hover:border-wedding-gold/40 hover:shadow-2xl hover:shadow-wedding-gold/10 sm:p-8"
                 style={{
                     background: "rgba(15, 23, 42, 0.6)",
                     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
@@ -147,84 +136,41 @@ function TimelineCard({
                 </div>
 
                 {/* Year badge */}
-                <motion.span
-                    initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                    animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
-                    transition={{ delay: 0.5, duration: 0.6, ease: [0.68, -0.55, 0.265, 1.55] }}
-                    className="relative z-10 mb-4 inline-block rounded-full border border-wedding-gold/30 bg-gradient-to-br from-wedding-gold/10 to-wedding-gold/5 px-4 py-1.5 font-mono text-xs tracking-widest text-wedding-gold shadow-lg shadow-wedding-gold/10 backdrop-blur-sm"
-                >
+                <span className="relative z-10 mb-4 inline-block rounded-full border border-wedding-gold/30 bg-gradient-to-br from-wedding-gold/10 to-wedding-gold/5 px-4 py-1.5 font-mono text-xs tracking-widest text-wedding-gold shadow-lg shadow-wedding-gold/10 backdrop-blur-sm">
                     {event.year}
-                </motion.span>
+                </span>
 
-                <motion.h3
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.6, duration: 0.6 }}
-                    className="mb-3 font-serif text-xl font-semibold leading-tight text-wedding-cream transition-colors duration-300 group-hover:text-wedding-gold/90 sm:text-2xl"
-                >
+                <h3 className="mb-3 font-serif text-xl font-semibold leading-tight text-wedding-cream transition-colors duration-300 group-hover:text-wedding-gold/90 sm:text-2xl">
                     {event.title}
-                </motion.h3>
+                </h3>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.7, duration: 0.6 }}
-                    className="text-sm leading-relaxed text-wedding-cream/60 transition-colors duration-300 group-hover:text-wedding-cream/80 sm:text-base"
-                >
+                <p className="text-sm leading-relaxed text-wedding-cream/60 transition-colors duration-300 group-hover:text-wedding-cream/80 sm:text-base">
                     {event.description}
-                </motion.p>
+                </p>
 
                 {/* Subtle gradient overlay on hover */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-wedding-gold/5 via-transparent to-transparent"
-                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-wedding-gold/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.div>
 
             {/* Center Dot with enhanced glow */}
             <motion.div
-                initial={{ scale: 0, opacity: 0, rotate: -180 }}
-                animate={isInView ? { scale: 1, opacity: 1, rotate: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.7, ease: [0.68, -0.55, 0.265, 1.55] }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="absolute left-8 md:left-1/2 z-20 flex -translate-x-1/2 items-center justify-center"
             >
                 {/* Outer glow ring */}
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
-                    }}
-                    transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute h-16 w-16 rounded-full bg-wedding-gold/20 blur-xl sm:h-20 sm:w-20"
-                />
+                <div className="absolute h-16 w-16 rounded-full bg-wedding-gold/20 blur-xl sm:h-20 sm:w-20" />
 
                 {/* Main icon container */}
                 <motion.div
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.1 }}
                     className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-navy via-wedding-navy to-wedding-gold/10 text-2xl shadow-xl shadow-wedding-gold/20 sm:h-16 sm:w-16 sm:text-3xl"
                     style={{
                         boxShadow: "0 0 30px rgba(212, 175, 55, 0.3), inset 0 2px 4px rgba(212, 175, 55, 0.1)",
                     }}
                 >
-                    <motion.span
-                        animate={{
-                            scale: [1, 1.1, 1],
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    >
-                        {event.icon}
-                    </motion.span>
+                    <span>{event.icon}</span>
                 </motion.div>
             </motion.div>
 
@@ -299,56 +245,33 @@ export function Timeline() {
                 <div className="relative z-20 mt-4 flex flex-col md:items-center w-full">
                     {/* Icon Group - centered on line */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: [0.68, -0.55, 0.265, 1.55] }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         className="relative flex items-center justify-center ml-8 md:ml-0 -translate-x-1/2 md:translate-x-0"
                     >
                         {/* Glow ring */}
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.3, 1],
-                                opacity: [0.4, 0.7, 0.4],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                            className="absolute h-28 w-28 rounded-full bg-wedding-gold/20 blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                        />
+                        <div className="absolute h-28 w-28 rounded-full bg-wedding-gold/20 blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
                         {/* Main end icon */}
                         <motion.div
-                            whileHover={{ scale: 1.15, rotate: 10 }}
-                            transition={{ duration: 0.4 }}
+                            whileHover={{ scale: 1.1 }}
                             className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-navy via-wedding-navy to-wedding-gold/20 text-4xl shadow-2xl shadow-wedding-gold/30 relative z-10"
                             style={{
                                 boxShadow: "0 0 40px rgba(212, 175, 55, 0.4), inset 0 2px 8px rgba(212, 175, 55, 0.15)",
                             }}
                         >
-                            <motion.span
-                                animate={{
-                                    scale: [1, 1.1, 1],
-                                }}
-                                transition={{
-                                    duration: 2.5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                            >
-                                💒
-                            </motion.span>
+                            <span>💒</span>
                         </motion.div>
                     </motion.div>
 
                     {/* text */}
                     <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
+                        transition={{ duration: 0.5 }}
                         className="mt-6 font-serif text-base italic leading-relaxed text-wedding-gold/80 text-left ml-20 md:text-center md:ml-0 md:max-w-md"
                     >
                         One mystery remains: Will Particle go for the kiss, or will it be a classic hug? Find out on March 14, 2026.
