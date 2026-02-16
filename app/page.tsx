@@ -9,38 +9,208 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { TextShimmer } from "@/components/TextShimmer";
 
 export default function Home() {
-  const jsonLd = {
+  const eventJsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: "Delali & Laura Wedding Celebration",
+    name: "Delali Dogbevi & Laura Bosompem Wedding Celebration",
+    alternateName: "Delali & Laura Wedding",
     description:
-      "The wedding celebration of Delali Dogbevi and Laura Bosompem.",
+      "Join us in celebrating the union of Delali Dogbevi and Laura Bosompem. The celebration includes a traditional Ghanaian wedding ceremony, white wedding service, and thanksgiving at PIWC Obuasi.",
     startDate: "2026-03-14T07:00:00+00:00",
     endDate: "2026-03-14T18:00:00+00:00",
+    doorTime: "2026-03-14T07:00:00+00:00",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
-    location: {
-      "@type": "Place",
-      name: "PIWC, Obuasi",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Obuasi",
-        addressCountry: "GH",
+    location: [
+      {
+        "@type": "Place",
+        name: "Mr. Bosompem's House",
+        description: "Traditional Wedding Ceremony Venue",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Kokotuasi",
+          addressLocality: "Obuasi",
+          addressRegion: "Ashanti Region",
+          addressCountry: "GH",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "6.2023",
+          longitude: "-1.6735",
+        },
       },
+      {
+        "@type": "Place",
+        name: "PIWC Obuasi",
+        description: "White Wedding and Thanksgiving Venue",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Kunka New Site",
+          addressLocality: "Obuasi",
+          addressRegion: "Ashanti Region",
+          addressCountry: "GH",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "6.2023",
+          longitude: "-1.6735",
+        },
+      },
+    ],
+    image: [
+      "https://laurykel.pages.dev/images/Save the Date DL.jpg",
+      "https://laurykel.pages.dev/images/logo.png",
+    ],
+    organizer: [
+      {
+        "@type": "Person",
+        name: "Delali Dogbevi",
+        familyName: "Dogbevi",
+        givenName: "Delali",
+      },
+      {
+        "@type": "Person",
+        name: "Laura Bosompem",
+        familyName: "Bosompem",
+        givenName: "Laura",
+      },
+    ],
+    performer: [
+      {
+        "@type": "Person",
+        name: "Delali Dogbevi",
+        roleName: "Groom",
+      },
+      {
+        "@type": "Person",
+        name: "Laura Bosompem",
+        roleName: "Bride",
+      },
+    ],
+    url: "https://laurykel.pages.dev",
+    about: {
+      "@type": "Thing",
+      name: "Wedding",
+      description: "Marriage Ceremony",
     },
-    image: "https://laurykel.pages.dev/images/Save the Date DL.jpg",
-    organizer: {
-      "@type": "Person",
-      name: "Delali Dogbevi & Laura Bosompem",
-    },
+    inLanguage: "en",
+    isAccessibleForFree: false,
+    maximumAttendeeCapacity: 500,
+    subEvent: [
+      {
+        "@type": "Event",
+        name: "Traditional Wedding Ceremony",
+        startDate: "2026-03-14T07:00:00+00:00",
+        endDate: "2026-03-14T11:00:00+00:00",
+        location: {
+          "@type": "Place",
+          name: "Mr. Bosompem's House",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kokotuasi",
+            addressLocality: "Obuasi",
+            addressCountry: "GH",
+          },
+        },
+        description: "Traditional Ghanaian wedding ceremony",
+      },
+      {
+        "@type": "Event",
+        name: "White Wedding Service",
+        startDate: "2026-03-14T12:30:00+00:00",
+        endDate: "2026-03-14T15:00:00+00:00",
+        location: {
+          "@type": "Place",
+          name: "PIWC Obuasi",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kunka New Site",
+            addressLocality: "Obuasi",
+            addressCountry: "GH",
+          },
+        },
+        description: "Christian wedding ceremony at PIWC Obuasi",
+      },
+      {
+        "@type": "Event",
+        name: "Thanksgiving Service",
+        startDate: "2026-03-15T08:00:00+00:00",
+        endDate: "2026-03-15T11:00:00+00:00",
+        location: {
+          "@type": "Place",
+          name: "PIWC Obuasi",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kunka New Site",
+            addressLocality: "Obuasi",
+            addressCountry: "GH",
+          },
+        },
+        description: "Thanksgiving service following the wedding",
+      },
+    ],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://laurykel.pages.dev",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Our Story",
+        item: "https://laurykel.pages.dev/#story",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Wedding Details",
+        item: "https://laurykel.pages.dev/#details",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "RSVP",
+        item: "https://laurykel.pages.dev/#rsvp",
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: "Registry",
+        item: "https://laurykel.pages.dev/#registry",
+      },
+    ],
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Delali & Laura Wedding",
+    url: "https://laurykel.pages.dev",
+    logo: "https://laurykel.pages.dev/images/logo.png",
+    sameAs: [],
   };
 
   return (
-    <main className="relative min-h-screen bg-wedding-navy">
+    <main className="relative min-h-screen bg-wedding-navy" role="main" aria-label="Wedding celebration website">
       {/* JSON-LD Structured Data for Search Engines */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
       {/* Global floating gold particles */}
@@ -62,7 +232,7 @@ export default function Home() {
       <SectionDivider variant="simple" />
 
       {/* Our Story / Timeline */}
-      <section id="story" className="relative py-24 sm:py-32">
+      <section id="story" className="relative py-24 sm:py-32" aria-labelledby="story-heading">
         <div
           className="absolute inset-0 opacity-40"
           style={{
@@ -73,6 +243,7 @@ export default function Home() {
           <div className="mb-16 text-center sm:mb-20">
             <TextShimmer
               as="h2"
+              id="story-heading"
               className="font-serif text-4xl font-light sm:text-5xl"
             >
               Our Story
@@ -89,11 +260,12 @@ export default function Home() {
       <SectionDivider variant="botanical" />
 
       {/* The Details */}
-      <section id="details" className="relative py-24 sm:py-32">
+      <section id="details" className="relative py-24 sm:py-32" aria-labelledby="details-heading">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-16">
             <TextShimmer
               as="h2"
+              id="details-heading"
               className="font-serif text-4xl font-light sm:text-5xl"
             >
               The Details
@@ -139,7 +311,7 @@ export default function Home() {
       <SectionDivider variant="simple" />
 
       {/* RSVP */}
-      <section id="rsvp" className="relative py-24 sm:py-32">
+      <section id="rsvp" className="relative py-24 sm:py-32" aria-labelledby="rsvp-heading">
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -150,6 +322,7 @@ export default function Home() {
           <div className="mb-16 text-center">
             <TextShimmer
               as="h2"
+              id="rsvp-heading"
               className="font-serif text-4xl font-light sm:text-5xl"
             >
               RSVP
@@ -166,10 +339,11 @@ export default function Home() {
       <SectionDivider variant="botanical" />
 
       {/* Registry */}
-      <section id="registry" className="relative py-24 sm:py-32">
+      <section id="registry" className="relative py-24 sm:py-32" aria-labelledby="registry-heading">
         <div className="mb-16 text-center">
           <TextShimmer
             as="h2"
+            id="registry-heading"
             className="font-serif text-4xl font-light sm:text-5xl"
           >
             Registry
@@ -179,14 +353,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-wedding-gold/5 py-16 text-center">
+      <footer className="relative border-t border-wedding-gold/5 py-16 text-center" role="contentinfo">
         <div className="mb-4 font-serif text-lg text-wedding-cream/20">
           Delali & Laura
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-cream/15">
           &copy; 2026 &middot; March 14th &middot; Obuasi, Ghana
         </p>
-        <div className="mx-auto mt-6 gold-line" style={{ width: 60, height: 1 }} />
+        <div className="mx-auto mt-6 gold-line" style={{ width: 60, height: 1 }} aria-hidden="true" />
       </footer>
     </main>
   );
@@ -209,21 +383,29 @@ function DetailCard({
   delay: number;
 }) {
   return (
-    <div className="group">
+    <article className="group">
       <div
         className="glass-card glow-border rounded-2xl p-8 transition-all duration-500 hover:border-wedding-gold/25"
         style={{ animationDelay: `${delay}s` }}
       >
-        <div className="mb-4 text-3xl">{icon}</div>
+        <div className="mb-4 text-3xl" role="img" aria-label={`${title} icon`}>
+          {icon}
+        </div>
         <h3 className="mb-4 font-serif text-xl text-wedding-cream">
           {title}
         </h3>
         <div className="space-y-1">
-          <p className="font-mono text-sm text-wedding-gold">{time}</p>
-          <p className="text-sm text-wedding-cream/50">{location}</p>
-          <p className="text-sm text-wedding-cream/40">{venue}</p>
+          <p className="font-mono text-sm text-wedding-gold">
+            <time dateTime={time}>{time}</time>
+          </p>
+          <p className="text-sm text-wedding-cream/50" itemProp="addressLocality">
+            {location}
+          </p>
+          <p className="text-sm text-wedding-cream/40" itemProp="name">
+            {venue}
+          </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
