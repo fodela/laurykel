@@ -60,7 +60,7 @@ export default function Home() {
     ],
     image: [
       "https://laurykel.pages.dev/savethedate-og.jpg",
-      "https://laurykel.pages.dev/images/logo.png",
+      "https://laurykel.pages.dev/images/logo-optimized.webp",
     ],
     organizer: [
       {
@@ -200,7 +200,7 @@ export default function Home() {
     "@type": "Organization",
     name: "Delali & Laura Wedding",
     url: "https://laurykel.pages.dev",
-    logo: "https://laurykel.pages.dev/images/logo.png",
+    logo: "https://laurykel.pages.dev/images/logo-optimized.webp",
     sameAs: [],
   };
 
@@ -260,6 +260,16 @@ export default function Home() {
             </p>
           </div>
           <Timeline />
+
+          {/* Special Note of Gratitude */}
+          <div className="mx-auto mt-20 max-w-3xl px-6 text-center">
+            <h3 className="mb-6 font-serif text-2xl italic text-wedding-gold/80">
+              A Special Note of Gratitude
+            </h3>
+            <p className="font-heading text-lg leading-relaxed text-wedding-cream/70">
+              Laura and Particle want to say a huge thank you to the amazing community that facilitated this journey—their bosses, teachers, spiritual leaders, parents, HR, friends, and colleagues. You helped write this story. They can’t wait to celebrate with you!
+            </p>
+          </div>
         </div>
       </section>
 

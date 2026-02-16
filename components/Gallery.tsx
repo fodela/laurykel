@@ -1,29 +1,32 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const galleryImages = [
-    "/images/photo_5769543325676845275_y.jpg",
-    "/images/photo_5778358084626923897_y.jpg",
-    "/images/photo_5785337522450796094_y.jpg",
-    "/images/photo_5785337522450796095_y.jpg",
-    "/images/photo_5785337522450796096_y.jpg",
-    "/images/photo_5785337522450796097_y.jpg",
-    "/images/photo_5785337522450796100_y.jpg",
-    "/images/photo_5785337522450796101_y.jpg",
-    "/images/photo_5785337522450796102_y.jpg",
-    "/images/photo_5785337522450796103_y.jpg",
-    "/images/photo_5785337522450796106_y.jpg",
-    "/images/photo_5785337522450796110_y.jpg",
-    "/images/photo_5820993297261377137_y.jpg",
-    "/images/photo_5884199556407738489_y.jpg",
-    "/images/photo_5884199556407738492_y.jpg",
-    "/images/photo_6041721729711190912_y.jpg",
-    "/images/photo_6041721729711190918_y.jpg",
-];
+    "/images/photo_5769543325676845275_y",
+    "/images/photo_5778358084626923897_y",
+    "/images/photo_5785337522450796094_y",
+    "/images/photo_5785337522450796095_y",
+    "/images/photo_5785337522450796096_y",
+    "/images/photo_5785337522450796097_y",
+    "/images/photo_5785337522450796100_y",
+    "/images/photo_5785337522450796101_y",
+    "/images/photo_5785337522450796102_y",
+    "/images/photo_5785337522450796103_y",
+    "/images/photo_5785337522450796106_y",
+    "/images/photo_5785337522450796110_y",
+    "/images/photo_5820993297261377137_y",
+    "/images/photo_5884199556407738489_y",
+    "/images/photo_5884199556407738492_y",
+    "/images/photo_6041721729711190912_y",
+    "/images/photo_6041721729711190918_y",
+].map(base => ({
+    thumb: `${base}-thumb.webp`,
+    full: `${base}-opt.jpg`,
+    fallback: `${base}-opt.jpg`
+}));
 
 /* ── Individual gallery photo with scroll reveal ── */
 function GalleryPhoto({
@@ -31,7 +34,7 @@ function GalleryPhoto({
     index,
     onOpen,
 }: {
-    src: string;
+    src: { thumb: string; full: string; fallback: string };
     index: number;
     onOpen: (index: number) => void;
 }) {
@@ -89,14 +92,12 @@ function GalleryPhoto({
                     </svg>
                 </div>
 
-                <Image
-                    src={src}
+                <img
+                    src={src.thumb}
                     alt={`Wedding gallery photo ${index + 1}`}
-                    width={600}
-                    height={800}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-auto w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     loading="lazy"
+                    decoding="async"
                 />
             </button>
         </motion.div>
@@ -111,7 +112,7 @@ function Lightbox({
     onPrev,
     onNext,
 }: {
-    images: string[];
+    images: { thumb: string; full: string; fallback: string }[];
     currentIndex: number;
     onClose: () => void;
     onPrev: () => void;
@@ -253,13 +254,12 @@ function Lightbox({
                         }}
                         className="relative h-full w-full"
                     >
-                        <Image
-                            src={images[currentIndex]}
+                        <img
+                            src={images[currentIndex].full}
                             alt={`Wedding photo ${currentIndex + 1} of ${images.length}`}
-                            fill
-                            sizes="90vw"
-                            className="rounded-lg object-contain"
-                            priority
+                            className="absolute inset-0 w-full h-full rounded-lg object-contain"
+                            loading="eager"
+                            decoding="async"
                         />
                     </motion.div>
                 </AnimatePresence>
@@ -303,7 +303,7 @@ export function Gallery() {
                 <div className="gallery-masonry">
                     {galleryImages.map((src, index) => (
                         <GalleryPhoto
-                            key={src}
+                            key={src.thumb}
                             src={src}
                             index={index}
                             onOpen={openLightbox}

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export function Hero() {
     const [showMarquee, setShowMarquee] = useState(false);
@@ -19,57 +18,75 @@ export function Hero() {
             <div className="absolute inset-0 z-0">
                 {showMarquee && (
                     <>
-                        {/* Delali Portrait - Left Center */}
+                        {/* Delali Portrait - Left Full Height */}
                         <motion.div
                             initial={{ opacity: 0, scale: 1.1, x: -50 }}
-                            animate={{ opacity: 0.65, scale: 1, x: 0 }}
+                            animate={{ opacity: 0.85, scale: 1, x: 0 }}
                             transition={{
                                 duration: 1.2,
                                 delay: 0.3,
                                 ease: [0.25, 0.46, 0.45, 0.94],
                             }}
-                            className="absolute top-1/2 left-0 -translate-y-1/2 h-[40vh] w-[25vw] sm:h-[50vh] sm:w-[30vw] lg:h-[70vh] lg:w-[28vw]"
+                            className="absolute top-0 left-0 max-h-[98vh] h-full w-[30vw] sm:w-[32vw] lg:w-[30vw]"
                         >
                             <div className="relative h-full w-full">
-                                <Image
-                                    src="/delali.jpg"
-                                    alt="Delali Dogbevi"
-                                    fill
-                                    loading="eager"
-                                    priority={false}
-                                    quality={85}
-                                    sizes="(max-width: 640px) 25vw, (max-width: 1024px) 30vw, 28vw"
-                                    className="object-cover object-center"
-                                />
-                                {/* Gradient overlay - fade from left toward center-right */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-wedding-charcoal/30 to-wedding-charcoal/80" />
+                                <picture>
+                                    <source
+                                        media="(max-width: 640px)"
+                                        srcSet="/delali-mobile.webp"
+                                        type="image/webp"
+                                    />
+                                    <source
+                                        srcSet="/delali-optimized.webp"
+                                        type="image/webp"
+                                    />
+                                    <img
+                                        src="/delali-optimized.jpg"
+                                        alt="Delali Dogbevi"
+                                        loading="eager"
+                                        decoding="async"
+                                        className="absolute inset-0 w-full h-full object-cover object-center"
+                                        style={{ width: '100%', height: '100%' }}
+                                    />
+                                </picture>
+                                {/* Gradient overlay - fade from left toward center with smooth blend */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-transparent via-50% to-wedding-charcoal/80" />
                             </div>
                         </motion.div>
 
-                        {/* Laura Portrait - Right Center */}
+                        {/* Laura Portrait - Right Full Height */}
                         <motion.div
                             initial={{ opacity: 0, scale: 1.1, x: 50 }}
-                            animate={{ opacity: 0.65, scale: 1, x: 0 }}
+                            animate={{ opacity: 0.85, scale: 1, x: 0 }}
                             transition={{
                                 duration: 1.2,
                                 delay: 0.5,
                                 ease: [0.25, 0.46, 0.45, 0.94],
                             }}
-                            className="absolute top-1/2 right-0 -translate-y-1/2 h-[40vh] w-[25vw] sm:h-[50vh] sm:w-[30vw] lg:h-[70vh] lg:w-[28vw]"
+                            className="absolute top-0 right-0 max-h-[98vh] h-full w-[30vw] sm:w-[32vw] lg:w-[30vw]"
                         >
                             <div className="relative h-full w-full">
-                                <Image
-                                    src="/laura.jpg"
-                                    alt="Laura Bosompem"
-                                    fill
-                                    loading="eager"
-                                    priority={false}
-                                    quality={85}
-                                    sizes="(max-width: 640px) 25vw, (max-width: 1024px) 30vw, 28vw"
-                                    className="object-cover object-center"
-                                />
-                                {/* Gradient overlay - fade from right toward center-left */}
-                                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-wedding-charcoal/30 to-wedding-charcoal/80" />
+                                <picture>
+                                    <source
+                                        media="(max-width: 640px)"
+                                        srcSet="/laura-mobile.webp"
+                                        type="image/webp"
+                                    />
+                                    <source
+                                        srcSet="/laura-optimized.webp"
+                                        type="image/webp"
+                                    />
+                                    <img
+                                        src="/laura-optimized.jpg"
+                                        alt="Laura Bosompem"
+                                        loading="eager"
+                                        decoding="async"
+                                        className="absolute inset-0 w-full h-full object-cover object-center"
+                                        style={{ width: '100%', height: '100%' }}
+                                    />
+                                </picture>
+                                {/* Gradient overlay - fade from right toward center with smooth blend */}
+                                <div className="absolute inset-0 bg-gradient-to-l from-transparent from-30% via-transparent via-50% to-wedding-charcoal/80" />
                             </div>
                         </motion.div>
                     </>
@@ -118,7 +135,7 @@ export function Hero() {
             </motion.div>
 
             {/* Main content */}
-            <div className="z-10 flex flex-col items-center gap-5 p-4 pt-16 text-center sm:gap-8 sm:pt-20">
+            <div className="z-10 flex flex-col items-center gap-5 p-4 pt-8 text-center sm:gap-8 sm:pt-12">
                 {/* "Together with their families" */}
                 <p className="hero-fade-up delay-0 font-heading text-base font-light tracking-[0.25em] text-wedding-pale-gold/70 sm:text-lg">
                     Together with their families
