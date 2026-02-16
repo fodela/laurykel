@@ -58,7 +58,8 @@ export default function Home() {
       },
     ],
     image: [
-      "https://laurykel.pages.dev/images/Save the Date DL.jpg",
+      "https://laurykel.pages.dev/images/photo_5769543325676845275_y.jpg",
+      "https://laurykel.pages.dev/images/photo_5785337522450796096_y.jpg",
       "https://laurykel.pages.dev/images/logo.png",
     ],
     organizer: [
