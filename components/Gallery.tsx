@@ -59,7 +59,7 @@ function GalleryPhoto({
         >
             <button
                 onClick={() => onOpen(index)}
-                className="relative block w-full cursor-pointer overflow-hidden rounded-xl border border-wedding-gold/10 transition-all duration-500 hover:border-wedding-gold/30 focus:outline-none focus:ring-2 focus:ring-wedding-gold/40 focus:ring-offset-2 focus:ring-offset-wedding-navy"
+                className="relative block w-full cursor-pointer overflow-hidden rounded-xl border border-wedding-gold/10 transition-all duration-500 hover:border-wedding-gold/30 focus:outline-none focus:ring-2 focus:ring-wedding-gold/40 focus:ring-offset-2 focus:ring-offset-wedding-ivory"
                 aria-label={`View photo ${index + 1} of ${galleryImages.length}`}
             >
                 {/* Gold glow on hover */}
@@ -71,10 +71,10 @@ function GalleryPhoto({
                 />
 
                 {/* Subtle overlay on hover */}
-                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-wedding-charcoal/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-wedding-ivory/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 {/* Expand icon hint on hover */}
-                <div className="pointer-events-none absolute right-3 bottom-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-charcoal/60 opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:opacity-100">
+                <div className="pointer-events-none absolute right-3 bottom-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-ivory/60 opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:opacity-100">
                     <svg
                         width="14"
                         height="14"
@@ -185,7 +185,7 @@ function Lightbox({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-wedding-charcoal/95 backdrop-blur-2xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-wedding-ivory/95 backdrop-blur-2xl"
             onClick={onClose}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -199,7 +199,7 @@ function Lightbox({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
                 onClick={onClose}
-                className="absolute top-4 right-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-charcoal/60 text-wedding-gold backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/60 hover:bg-wedding-charcoal/80 sm:top-6 sm:right-6"
+                className="absolute top-4 right-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-ivory/60 text-wedding-gold backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/60 hover:bg-wedding-ivory/80 sm:top-6 sm:right-6"
                 aria-label="Close lightbox"
             >
                 <X size={18} />
@@ -214,7 +214,7 @@ function Lightbox({
                     e.stopPropagation();
                     handlePrev();
                 }}
-                className="absolute left-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-charcoal/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:left-6 sm:h-12 sm:w-12"
+                className="absolute left-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-ivory/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:left-6 sm:h-12 sm:w-12"
                 aria-label="Previous photo"
             >
                 <ChevronLeft size={20} />
@@ -229,7 +229,7 @@ function Lightbox({
                     e.stopPropagation();
                     handleNext();
                 }}
-                className="absolute right-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-charcoal/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:right-6 sm:h-12 sm:w-12"
+                className="absolute right-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-ivory/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:right-6 sm:h-12 sm:w-12"
                 aria-label="Next photo"
             >
                 <ChevronRight size={20} />
@@ -270,7 +270,7 @@ function Lightbox({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs tracking-[0.2em] text-wedding-cream/40 sm:bottom-6"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs tracking-[0.2em] text-wedding-charcoal/60 sm:bottom-6"
             >
                 {currentIndex + 1} / {images.length}
             </motion.div>

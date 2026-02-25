@@ -20,7 +20,7 @@ export function Navigation() {
     const navBg = useTransform(
         scrollY,
         [0, 200],
-        ["rgba(15, 27, 45, 0)", "rgba(15, 27, 45, 0.85)"]
+        ["rgba(250, 248, 245, 0)", "rgba(250, 248, 245, 0.85)"]
     );
 
     const navBlur = useTransform(
@@ -70,7 +70,7 @@ export function Navigation() {
                             >
                                 <Link
                                     href={item.href}
-                                    className="group relative font-mono text-[11px] uppercase tracking-[0.25em] text-wedding-cream/60 transition-colors duration-300 hover:text-wedding-gold"
+                                    className="group relative font-mono text-[11px] uppercase tracking-[0.25em] text-wedding-charcoal/60 transition-colors duration-300 hover:text-wedding-gold"
                                 >
                                     {item.name}
                                     <span className="absolute -bottom-1 left-0 h-px w-0 bg-wedding-gold transition-all duration-300 group-hover:w-full" />
@@ -106,7 +106,7 @@ export function Navigation() {
 
             {/* Mobile Menu Overlay */}
             <motion.div
-                className="fixed inset-0 z-[65] flex flex-col items-center justify-center gap-8 bg-wedding-charcoal/95 backdrop-blur-xl sm:hidden"
+                className="fixed inset-0 z-[65] flex flex-col items-center justify-center gap-8 bg-wedding-ivory/95 backdrop-blur-xl sm:hidden"
                 initial={false}
                 animate={isOpen ? { opacity: 1, pointerEvents: "auto" as const } : { opacity: 0, pointerEvents: "none" as const }}
                 transition={{ duration: 0.3 }}
@@ -121,7 +121,7 @@ export function Navigation() {
                         <Link
                             href={item.href}
                             onClick={() => setIsOpen(false)}
-                            className="font-heading text-2xl tracking-[0.2em] text-wedding-cream/80 transition-colors hover:text-wedding-gold"
+                            className="font-heading text-2xl tracking-[0.2em] text-wedding-charcoal/60 transition-colors hover:text-wedding-gold"
                         >
                             {item.name}
                         </Link>

@@ -50,7 +50,7 @@ const TimeUnit = React.memo(({ value, label }: TimeUnitProps) => {
                     }}
                 />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-pale-gold/50 sm:text-xs">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-sage/50 sm:text-xs">
                 {label}
             </span>
         </div>
@@ -111,17 +111,17 @@ export function Countdown() {
             <div
                 className="absolute inset-0 opacity-50"
                 style={{
-                    background: "radial-gradient(ellipse at 50% 50%, rgba(26, 58, 58, 0.5) 0%, transparent 70%)",
+                    background: "radial-gradient(ellipse at 50% 50%, rgba(200, 169, 81, 0.08) 0%, transparent 70%)",
                 }}
             />
 
             <div className="container relative z-10 mx-auto px-4">
                 <div className="hero-fade-up flex flex-col items-center gap-12">
                     <div className="text-center">
-                        <h2 className="font-heading text-lg font-light tracking-[0.3em] text-wedding-pale-gold/60 sm:text-xl">
+                        <h2 className="font-heading text-lg font-light tracking-[0.3em] text-wedding-sage/60 sm:text-xl">
                             COUNTING DOWN TO
                         </h2>
-                        <p className="mt-2 font-serif text-3xl text-wedding-cream sm:text-4xl">
+                        <p className="mt-2 font-serif text-3xl text-wedding-charcoal sm:text-4xl">
                             Our Special Day
                         </p>
                     </div>

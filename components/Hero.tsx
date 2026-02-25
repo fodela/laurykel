@@ -13,7 +13,7 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-wedding-charcoal">
+        <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-wedding-ivory">
             {/* Corner-positioned Portrait Backgrounds */}
             <div className="absolute inset-0 z-0">
                 {showMarquee && (
@@ -45,12 +45,12 @@ export function Hero() {
                                         alt="Delali Dogbevi"
                                         loading="eager"
                                         decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover object-center"
+                                        className="absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
                                         style={{ width: '100%', height: '100%' }}
                                     />
                                 </picture>
                                 {/* Gradient overlay - fade from left toward center with smooth blend */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-transparent via-50% to-wedding-charcoal/80" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-transparent via-50% to-wedding-ivory/80" />
                             </div>
                         </motion.div>
 
@@ -81,25 +81,19 @@ export function Hero() {
                                         alt="Laura Bosompem"
                                         loading="eager"
                                         decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover object-center"
+                                        className="absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
                                         style={{ width: '100%', height: '100%' }}
                                     />
                                 </picture>
                                 {/* Gradient overlay - fade from right toward center with smooth blend */}
-                                <div className="absolute inset-0 bg-gradient-to-l from-transparent from-30% via-transparent via-50% to-wedding-charcoal/80" />
+                                <div className="absolute inset-0 bg-gradient-to-l from-transparent from-30% via-transparent via-50% to-wedding-ivory/80" />
                             </div>
                         </motion.div>
                     </>
                 )}
                 {/* Dark gradient overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-wedding-charcoal/70 via-wedding-navy/80 to-wedding-charcoal/90" />
                 {/* Radial vignette */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background: "radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(10, 15, 26, 0.7) 100%)",
-                    }}
-                />
+
             </div>
 
             {/* Subtle radial gold glow */}
@@ -136,16 +130,16 @@ export function Hero() {
 
             {/* Main content */}
             <div className="z-10 flex flex-col items-center gap-5 p-4 pt-8 text-center sm:gap-8 sm:pt-12">
-                {/* "Together with their families" */}
-                <p className="hero-fade-up delay-0 font-heading text-base font-light tracking-[0.25em] text-wedding-pale-gold/70 sm:text-lg">
-                    Together with their families
+                {/* "Celebrating the union of" */}
+                <p className="hero-fade-up delay-0 font-script text-3xl font-light text-wedding-sage sm:text-4xl">
+                    Celebrating the union of
                 </p>
 
                 {/* Gold ornamental line */}
                 <div className="hero-line-grow delay-100 gold-line" style={{ height: 1, width: 100 }} />
 
                 {/* Names */}
-                <h1 className="hero-scale-in delay-150 text-shimmer font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
+                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
                     Delali
                 </h1>
 
@@ -153,8 +147,8 @@ export function Hero() {
                     &
                 </span>
 
-                <h1 className="hero-scale-in delay-150 text-shimmer font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
-                    Laura
+                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
+                    Laura.
                 </h1>
 
                 {/* Gold ornamental line */}
@@ -162,21 +156,21 @@ export function Hero() {
 
                 {/* Date & Venue */}
                 <div className="hero-fade-up delay-250 flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
-                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-pale-gold/80 sm:text-base">
+                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-sage/80 sm:text-base">
                         SAT &middot; MARCH 14 &middot; 2026
                     </span>
                     <span className="hidden h-1.5 w-1.5 rounded-full bg-wedding-gold sm:block" />
-                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-pale-gold/80 sm:text-base">
+                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-sage/80 sm:text-base">
                         PIWC, OBUASI
                     </span>
                 </div>
 
                 {/* Bible Verse */}
                 <blockquote className="hero-fade-up delay-300 mt-4 max-w-md text-center">
-                    <p className="font-heading text-sm italic leading-relaxed text-wedding-cream/50 sm:text-base">
+                    <p className="font-heading text-sm italic leading-relaxed text-wedding-charcoal/70 sm:text-base">
                         &ldquo;He who finds a wife finds a good thing and obtains favor from the LORD&rdquo;
                     </p>
-                    <cite className="mt-2 block font-mono text-xs tracking-widest text-wedding-gold/60 not-italic">
+                    <cite className="mt-2 block font-mono text-xs tracking-widest text-wedding-gold/80 not-italic">
                         PROVERBS 18:22
                     </cite>
                 </blockquote>

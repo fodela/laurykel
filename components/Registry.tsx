@@ -19,10 +19,10 @@ export function Registry() {
                 >
                     <Gift className="h-10 w-10 text-wedding-gold/60" />
                 </motion.div>
-                <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-cream/40 sm:text-lg">
+                <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-charcoal/60 sm:text-lg">
                     Your presence is enough of a present to us! But for those who wish to contribute, your gifts are better preferred as cash
                 </p>
-                <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-cream/40 sm:text-lg">
+                <p className="max-w-lg font-heading text-base leading-relaxed text-wedding-charcoal/60 sm:text-lg">
                     For gifts in kind, a gift table will be set up at the venue
                 </p>
             </motion.div>
@@ -50,10 +50,10 @@ export function Registry() {
                     </motion.div>
 
                     <div className="relative z-10 flex flex-col items-center gap-2">
-                        <span className="font-mono text-xs tracking-widest text-wedding-cream/30 sm:text-sm">
+                        <span className="font-mono text-xs tracking-widest text-wedding-charcoal/60 sm:text-sm">
                             MOBILE MONEY
                         </span>
-                        <span className="font-serif text-2xl font-bold text-wedding-cream/80 transition-colors duration-300 group-hover:text-wedding-gold sm:text-3xl">
+                        <span className="font-serif text-2xl font-bold text-wedding-charcoal/60 transition-colors duration-300 group-hover:text-wedding-gold sm:text-3xl">
                             0555304124
                         </span>
                     </div>

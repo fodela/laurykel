@@ -68,10 +68,10 @@ export function RSVP() {
                     >
                         <span className="text-3xl">✨</span>
                     </motion.div>
-                    <h3 className="mb-4 font-serif text-3xl text-wedding-cream">
+                    <h3 className="mb-4 font-serif text-3xl text-wedding-charcoal">
                         Thank you!
                     </h3>
-                    <p className="max-w-sm text-wedding-cream/50">
+                    <p className="max-w-sm text-wedding-charcoal/60">
                         Your RSVP has been received. We can&apos;t wait to celebrate with you!
                     </p>
                     <button
@@ -97,13 +97,13 @@ export function RSVP() {
             >
                 {/* Intro text */}
                 <div className="mb-2 text-center">
-                    <p className="font-serif text-lg text-wedding-cream/80">
+                    <p className="font-serif text-lg text-wedding-charcoal/60">
                         We&apos;d love to celebrate with you!
                     </p>
-                    <p className="mt-2 text-sm text-wedding-cream/50">
+                    <p className="mt-2 text-sm text-wedding-charcoal/60">
                         Please fill in your details below to confirm your attendance.
                     </p>
-                    <p className="mt-3 text-xs text-wedding-cream/40">
+                    <p className="mt-3 text-xs text-wedding-charcoal/60">
                         or contact: Samuel 0598436661 | Stephanie 0597136307
                     </p>
                 </div>
@@ -112,7 +112,7 @@ export function RSVP() {
                 <div>
                     <label
                         htmlFor="name"
-                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
+                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-sage/50"
                     >
                         Full Name *
                     </label>
@@ -121,7 +121,7 @@ export function RSVP() {
                         id="name"
                         name="name"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="Jane Doe"
                     />
                 </div>
@@ -130,7 +130,7 @@ export function RSVP() {
                 <div>
                     <label
                         htmlFor="email"
-                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
+                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-sage/50"
                     >
                         Email Address *
                     </label>
@@ -139,7 +139,7 @@ export function RSVP() {
                         id="email"
                         name="email"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="jane@example.com"
                     />
                 </div>
@@ -148,7 +148,7 @@ export function RSVP() {
                 <div>
                     <label
                         htmlFor="phone"
-                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
+                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-sage/50"
                     >
                         Phone Number *
                     </label>
@@ -157,7 +157,7 @@ export function RSVP() {
                         id="phone"
                         name="phone"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="+1 (555) 123-4567"
                     />
                 </div>
@@ -166,7 +166,7 @@ export function RSVP() {
                 <div>
                     <label
                         htmlFor="questions"
-                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-pale-gold/50"
+                        className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-wedding-sage/50"
                     >
                         Questions or Special Requests
                     </label>
@@ -174,7 +174,7 @@ export function RSVP() {
                         id="questions"
                         name="questions"
                         rows={4}
-                        className="input-glow w-full resize-none rounded-lg border border-wedding-gold/10 bg-wedding-navy/50 px-4 py-3 text-wedding-cream placeholder:text-wedding-cream/20 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full resize-none rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="Any dietary restrictions, accessibility needs, or questions for us..."
                     />
                 </div>
@@ -184,7 +184,7 @@ export function RSVP() {
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+                        className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-700"
                     >
                         {error}
                     </motion.div>
@@ -202,7 +202,7 @@ export function RSVP() {
                     {isSubmitting ? "Sending..." : "Confirm Attendance"}
                 </motion.button>
 
-                <p className="text-center text-xs text-wedding-cream/30">
+                <p className="text-center text-xs text-wedding-charcoal/60">
                     * Required fields
                 </p>
             </motion.form>

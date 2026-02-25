@@ -205,7 +205,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-wedding-navy" role="main" aria-label="Wedding celebration website">
+    <main className="relative min-h-screen bg-wedding-ivory" role="main" aria-label="Wedding celebration website">
       {/* JSON-LD Structured Data for Search Engines */}
       <script
         type="application/ld+json"
@@ -243,7 +243,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-40"
           style={{
-            background: "linear-gradient(180deg, transparent 0%, rgba(26, 58, 58, 0.3) 50%, transparent 100%)",
+            background: "linear-gradient(180deg, transparent 0%, rgba(250, 248, 245, 0.6) 50%, transparent 100%)",
           }}
         />
         <div className="relative z-10">
@@ -255,7 +255,7 @@ export default function Home() {
             >
               Our Story
             </TextShimmer>
-            <p className="mt-4 font-heading text-base text-wedding-cream/30">
+            <p className="mt-4 font-heading text-base text-wedding-charcoal/60">
               The moments that led us here
             </p>
           </div>
@@ -266,7 +266,7 @@ export default function Home() {
             <h3 className="mb-6 font-serif text-2xl italic text-wedding-gold/80">
               A Special Note of Gratitude
             </h3>
-            <p className="font-heading text-lg leading-relaxed text-wedding-cream/70">
+            <p className="font-heading text-lg leading-relaxed text-wedding-charcoal/60">
               Laura and Particle want to say a huge thank you to the amazing community that facilitated this journey—their bosses, teachers, spiritual leaders, parents, HR, friends, and colleagues. You helped write this story. They can’t wait to celebrate with you!
             </p>
           </div>
@@ -287,7 +287,7 @@ export default function Home() {
             >
               The Details
             </TextShimmer>
-            <p className="mt-4 font-heading text-base text-wedding-cream/30">
+            <p className="mt-4 font-heading text-base text-wedding-charcoal/60">
               Everything you need to know
             </p>
           </div>
@@ -332,7 +332,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            background: "radial-gradient(ellipse at 30% 50%, rgba(200, 169, 81, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(26, 58, 58, 0.15) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse at 30% 50%, rgba(200, 169, 81, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 60%)",
           }}
         />
         <div className="relative z-10">
@@ -344,7 +344,7 @@ export default function Home() {
             >
               Our Moments
             </TextShimmer>
-            <p className="mt-4 font-heading text-base text-wedding-cream/30">
+            <p className="mt-4 font-heading text-base text-wedding-charcoal/60">
               A glimpse into our journey together
             </p>
           </div>
@@ -372,7 +372,7 @@ export default function Home() {
             >
               RSVP
             </TextShimmer>
-            <p className="mt-4 font-heading text-base text-wedding-cream/30">
+            <p className="mt-4 font-heading text-base text-wedding-charcoal/60">
               Let us know if you can make it
             </p>
           </div>
@@ -399,10 +399,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative border-t border-wedding-gold/5 py-16 text-center" role="contentinfo">
-        <div className="mb-4 font-serif text-lg text-wedding-cream/20">
+        <div className="mb-4 font-serif text-lg text-wedding-charcoal/60">
           Delali & Laura
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-cream/15">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-charcoal/60">
           &copy; 2026 &middot; March 14th &middot; Obuasi, Ghana
         </p>
         <div className="mx-auto mt-6 gold-line" style={{ width: 60, height: 1 }} aria-hidden="true" />
@@ -436,17 +436,17 @@ function DetailCard({
         <div className="mb-4 text-3xl" role="img" aria-label={`${title} icon`}>
           {icon}
         </div>
-        <h3 className="mb-4 font-serif text-xl text-wedding-cream">
+        <h3 className="mb-4 font-serif text-xl text-wedding-charcoal">
           {title}
         </h3>
         <div className="space-y-1">
           <p className="font-mono text-sm text-wedding-gold">
             <time dateTime={time}>{time}</time>
           </p>
-          <p className="text-sm text-wedding-cream/50" itemProp="addressLocality">
+          <p className="text-sm text-wedding-charcoal/60" itemProp="addressLocality">
             {location}
           </p>
-          <p className="text-sm text-wedding-cream/40" itemProp="name">
+          <p className="text-sm text-wedding-charcoal/60" itemProp="name">
             {venue}
           </p>
         </div>
