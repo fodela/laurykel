@@ -121,7 +121,7 @@ function TimelineCard({
                 }}
                 className="glass-card group relative w-[calc(100%-4rem)] ml-16 md:ml-0 md:w-[42%] overflow-hidden rounded-2xl p-6 backdrop-blur-xl transition-[border-color,box-shadow] duration-300 hover:border-wedding-gold/40 hover:shadow-2xl hover:shadow-wedding-gold/10 sm:p-8"
                 style={{
-                    background: "rgba(250, 248, 245, 0.6)",
+                    background: "var(--wedding-glass)",
                     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
                 }}
             >
@@ -160,9 +160,9 @@ function TimelineCard({
                 {/* Main icon container */}
                 <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-ivory via-wedding-ivory to-wedding-gold/10 text-2xl shadow-xl shadow-wedding-gold/20 sm:h-16 sm:w-16 sm:text-3xl"
+                    className="relative flex h-14 w-14 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-background via-background to-wedding-gold/10 text-2xl shadow-xl shadow-wedding-gold/20 sm:h-16 sm:w-16 sm:text-3xl"
                     style={{
-                        boxShadow: "0 0 30px rgba(212, 175, 55, 0.3), inset 0 2px 4px rgba(212, 175, 55, 0.1)",
+                        boxShadow: "0 0 30px var(--wedding-glow), inset 0 2px 4px var(--wedding-glow)",
                     }}
                 >
                     <span>{event.icon}</span>
@@ -252,9 +252,9 @@ export function Timeline() {
                         {/* Main end icon */}
                         <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-wedding-ivory via-wedding-ivory to-wedding-gold/20 text-4xl shadow-2xl shadow-wedding-gold/30 relative z-10"
+                            className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-wedding-gold/40 bg-gradient-to-br from-background via-background to-wedding-gold/20 text-4xl shadow-2xl shadow-wedding-gold/30 relative z-10"
                             style={{
-                                boxShadow: "0 0 40px rgba(212, 175, 55, 0.4), inset 0 2px 8px rgba(212, 175, 55, 0.15)",
+                                boxShadow: "0 0 40px var(--wedding-glow), inset 0 2px 8px var(--wedding-glow)",
                             }}
                         >
                             <span>💒</span>

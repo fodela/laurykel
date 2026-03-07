@@ -63,35 +63,28 @@ function GalleryPhoto({
         >
             <button
                 onClick={() => onOpen(index)}
-                className="relative block w-full cursor-pointer overflow-hidden rounded-[1rem] border border-wedding-gold/10 transition-all duration-500 hover:border-wedding-gold/30 focus:outline-none focus:ring-2 focus:ring-wedding-gold/40 focus:ring-offset-2 focus:ring-offset-wedding-ivory"
+                className="relative block w-full cursor-pointer overflow-hidden rounded-[1rem] border border-wedding-gold/10 transition-all duration-500 hover:border-wedding-gold/30 focus:outline-none focus:ring-2 focus:ring-wedding-gold/40 focus:ring-offset-2 focus:ring-offset-background"
                 aria-label={`View photo ${index + 1} of ${galleryImages.length}: ${src.description}`}
             >
                 {/* Gold glow on hover */}
                 <div className="pointer-events-none absolute inset-0 z-10 rounded-[1rem] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     style={{
-                        boxShadow:
-                            "inset 0 0 30px rgba(200, 169, 81, 0.08), 0 0 20px rgba(200, 169, 81, 0.06)",
+                        boxShadow: "inset 0 0 30px var(--wedding-glow), 0 0 20px var(--wedding-glow)",
                     }}
                 />
 
-                {/* Subtle overlay on hover - gradient mapping for text readability */}
-                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-wedding-charcoal/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Dark gradient overlay for text readability — always dark regardless of theme */}
+                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 {/* Text overlay at the bottom */}
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col justify-end p-5 opacity-0 translate-y-3 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 text-left">
-                    <span className="font-serif text-lg text-wedding-ivory drop-shadow-md">{src.description}</span>
+                    <span className="font-serif text-lg text-white drop-shadow-md">{src.description}</span>
                     <span className="font-sans text-[0.65rem] tracking-[0.2em] text-wedding-gold mt-1 uppercase drop-shadow-md">{src.date}</span>
                 </div>
 
                 {/* Expand icon hint on hover */}
-                <div className="pointer-events-none absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-ivory/80 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:opacity-100 shadow-sm">
-                    <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        className="text-wedding-gold"
-                    >
+                <div className="pointer-events-none absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-wedding-gold/30 bg-background/80 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:opacity-100 shadow-sm">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-wedding-gold">
                         <path
                             d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9"
                             stroke="currentColor"
@@ -141,7 +134,6 @@ function Lightbox({
         onNext();
     }, [onNext]);
 
-    // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
@@ -156,11 +148,7 @@ function Lightbox({
         };
     }, [onClose, handlePrev, handleNext]);
 
-    // Touch swipe
-    const handleTouchStart = (e: React.TouchEvent) => {
-        setTouchStart(e.touches[0].clientX);
-    };
-
+    const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
     const handleTouchEnd = (e: React.TouchEvent) => {
         if (touchStart === null) return;
         const diff = touchStart - e.changedTouches[0].clientX;
@@ -172,21 +160,9 @@ function Lightbox({
     };
 
     const slideVariants = {
-        enter: (d: number) => ({
-            x: d > 0 ? 300 : -300,
-            opacity: 0,
-            scale: 0.9,
-        }),
-        center: {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-        },
-        exit: (d: number) => ({
-            x: d > 0 ? -300 : 300,
-            opacity: 0,
-            scale: 0.9,
-        }),
+        enter: (d: number) => ({ x: d > 0 ? 300 : -300, opacity: 0, scale: 0.9 }),
+        center: { x: 0, opacity: 1, scale: 1 },
+        exit: (d: number) => ({ x: d > 0 ? -300 : 300, opacity: 0, scale: 0.9 }),
     };
 
     return (
@@ -195,7 +171,7 @@ function Lightbox({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-wedding-ivory/95 backdrop-blur-2xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-2xl"
             onClick={onClose}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -209,7 +185,7 @@ function Lightbox({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
                 onClick={onClose}
-                className="absolute top-4 right-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/30 bg-wedding-ivory/60 text-wedding-gold backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/60 hover:bg-wedding-ivory/80 sm:top-6 sm:right-6"
+                className="absolute top-4 right-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/30 bg-background/60 text-wedding-gold backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/60 hover:bg-background/80 sm:top-6 sm:right-6"
                 aria-label="Close lightbox"
             >
                 <X size={18} />
@@ -220,11 +196,8 @@ function Lightbox({
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    handlePrev();
-                }}
-                className="absolute left-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-ivory/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:left-6 sm:h-12 sm:w-12"
+                onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+                className="absolute left-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-background/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:left-6 sm:h-12 sm:w-12"
                 aria-label="Previous photo"
             >
                 <ChevronLeft size={20} />
@@ -235,11 +208,8 @@ function Lightbox({
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    handleNext();
-                }}
-                className="absolute right-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-wedding-ivory/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:right-6 sm:h-12 sm:w-12"
+                onClick={(e) => { e.stopPropagation(); handleNext(); }}
+                className="absolute right-2 z-[110] flex h-10 w-10 items-center justify-center rounded-full border border-wedding-gold/20 bg-background/50 text-wedding-gold/70 backdrop-blur-sm transition-all duration-300 hover:border-wedding-gold/50 hover:text-wedding-gold sm:right-6 sm:h-12 sm:w-12"
                 aria-label="Next photo"
             >
                 <ChevronRight size={20} />
@@ -258,10 +228,7 @@ function Lightbox({
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        transition={{
-                            duration: 0.4,
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                        }}
+                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                         className="relative h-full w-full flex items-center justify-center"
                     >
                         <img
@@ -272,15 +239,15 @@ function Lightbox({
                             decoding="async"
                         />
 
-                        {/* Caption Overlay */}
+                        {/* Caption */}
                         <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 flex justify-center pointer-events-none z-20">
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="bg-wedding-ivory/85 backdrop-blur-md px-6 py-3 rounded-2xl border border-wedding-gold/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] text-center max-w-[80%]"
+                                className="bg-background/85 backdrop-blur-md px-6 py-3 rounded-2xl border border-wedding-gold/30 shadow-[0_8px_30px_rgb(0,0,0,0.12)] text-center max-w-[80%]"
                             >
-                                <h3 className="font-serif text-lg md:text-xl text-wedding-charcoal">{images[currentIndex].description}</h3>
+                                <h3 className="font-serif text-lg md:text-xl text-foreground">{images[currentIndex].description}</h3>
                                 <p className="font-sans text-[0.65rem] md:text-xs tracking-[0.2em] text-wedding-gold uppercase mt-1">{images[currentIndex].date}</p>
                             </motion.div>
                         </div>
@@ -293,7 +260,7 @@ function Lightbox({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs tracking-[0.2em] text-wedding-charcoal/60 sm:bottom-6"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs tracking-[0.2em] text-foreground/60 sm:bottom-6"
             >
                 {currentIndex + 1} / {images.length}
             </motion.div>
@@ -310,9 +277,7 @@ export function Gallery() {
 
     const goPrev = () =>
         setLightboxIndex((prev) =>
-            prev !== null
-                ? (prev - 1 + galleryImages.length) % galleryImages.length
-                : null
+            prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : null
         );
 
     const goNext = () =>
@@ -335,7 +300,6 @@ export function Gallery() {
                 </div>
             </div>
 
-            {/* Lightbox */}
             <AnimatePresence>
                 {lightboxIndex !== null && (
                     <Lightbox

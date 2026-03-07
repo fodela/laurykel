@@ -111,7 +111,7 @@ export function Countdown() {
             <div
                 className="absolute inset-0 opacity-50"
                 style={{
-                    background: "radial-gradient(ellipse at 50% 50%, rgba(200, 169, 81, 0.08) 0%, transparent 70%)",
+                    background: "radial-gradient(ellipse at 50% 50%, var(--wedding-glow) 0%, transparent 70%)",
                 }}
             />
 

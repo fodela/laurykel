@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @keyframes ken-burns {
   0% { transform: scale(1); }
@@ -9,8 +9,8 @@
 }
 
 /* ========================================
-   WEDDING DESIGN SYSTEM — Dark Luxury Theme
-   Inspired by the invitation: Navy + Teal + Gold
+   WEDDING DESIGN SYSTEM — Forest Green + Gold
+   Inspired by the invitation: Deep Forest Green + Amber Gold + Ivory
    ======================================== */
 
 html {
@@ -21,11 +21,12 @@ html {
   /* ── Wedding Palette ── */
   --wedding-ivory: #FAF8F5;
   --wedding-gold: #C9A84C;
-  --wedding-sage: #8A9A86;
-  --wedding-charcoal: #2A2A35;
-  --wedding-glass: rgba(250, 248, 245, 0.6);
-  --wedding-glass-border: rgba(201, 168, 76, 0.4);
-  --wedding-glow: rgba(201, 168, 76, 0.3);
+  --wedding-sage: #6B9A78;
+  --wedding-charcoal: #145232;
+  --wedding-forest: #155332;     /* always forest green — hero bg, nav glass */
+  --wedding-glass: rgba(250, 248, 245, 0.65);
+  --wedding-glass-border: rgba(201, 168, 76, 0.40);
+  --wedding-glow: rgba(201, 168, 76, 0.25);
 
   /* ── Animation Timing ── */
   --ease-elegant: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -38,24 +39,67 @@ html {
 
   /* ── Shadcn Theme ── */
   --radius: 1rem;
-  --background: #FAF8F5;
-  --foreground: #2A2A35;
-  --card: #FFFFFF;
-  --card-foreground: #2A2A35;
-  --popover: #FFFFFF;
-  --popover-foreground: #2A2A35;
-  --primary: #C9A84C;
-  --primary-foreground: #FAF8F5;
-  --secondary: #8A9A86;
-  --secondary-foreground: #FAF8F5;
-  --muted: #F0EBE1;
-  --muted-foreground: #8A9A86;
-  --accent: #8A9A86;
-  --accent-foreground: #FAF8F5;
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(42, 42, 53, 0.1);
-  --input: rgba(42, 42, 53, 0.1);
-  --ring: rgba(201, 168, 76, 0.4);
+  --background:  oklch(0.98 0.006 90);
+  --foreground:  oklch(0.22 0.09 155);
+  --card:        oklch(0.97 0.005 90);
+  --card-foreground: oklch(0.22 0.09 155);
+  --popover:     oklch(0.98 0.005 90);
+  --popover-foreground: oklch(0.40 0.07 155);
+  --primary:     oklch(0.33 0.115 155);
+  --primary-foreground: oklch(0.98 0.006 90);
+  --secondary:   oklch(0.93 0.018 140);
+  --secondary-foreground: oklch(0.22 0.09 155);
+  --muted:       oklch(0.94 0.010 100);
+  --muted-foreground: oklch(0.45 0.06 155);
+  --accent:      oklch(0.93 0.018 140);
+  --accent-foreground: oklch(0.22 0.09 155);
+  --destructive: oklch(0.5523 0.1927 32.73);
+  --destructive-foreground: oklch(0.9934 0.0032 17.21);
+  --border:      oklch(0.85 0.022 145);
+  --input:       oklch(0.96 0.007 95);
+  --ring:        oklch(0.72 0.135 83);
+  --chart-1:     oklch(0.33 0.115 155);
+  --chart-2:     oklch(0.72 0.135 83);
+  --chart-3:     oklch(0.50 0.095 155);
+  --chart-4:     oklch(0.65 0.120 83);
+  --chart-5:     oklch(0.44 0.095 155);
+}
+
+.dark {
+  /* ── Wedding Palette (dark) ── */
+  --wedding-ivory: #FAF8F5;
+  --wedding-gold: #D4B85A;
+  --wedding-sage: #7AAB8A;
+  --wedding-charcoal: #FAF8F5;
+  --wedding-forest: #155332;     /* always forest green — hero bg, nav glass */
+  --wedding-glass: rgba(12, 48, 32, 0.75);
+  --wedding-glass-border: rgba(201, 168, 76, 0.35);
+  --wedding-glow: rgba(201, 168, 76, 0.30);
+
+  --background:  oklch(0.22 0.075 155);
+  --foreground:  oklch(0.97 0.006 90);
+  --card:        oklch(0.27 0.075 155);
+  --card-foreground: oklch(0.97 0.006 90);
+  --popover:     oklch(0.30 0.068 155);
+  --popover-foreground: oklch(0.75 0.012 90);
+  --primary:     oklch(0.72 0.135 83);
+  --primary-foreground: oklch(0.22 0.075 155);
+  --secondary:   oklch(0.30 0.068 155);
+  --secondary-foreground: oklch(0.97 0.005 90);
+  --muted:       oklch(0.26 0.068 155);
+  --muted-foreground: oklch(0.72 0.015 90);
+  --accent:      oklch(0.33 0.072 155);
+  --accent-foreground: oklch(0.97 0.005 90);
+  --destructive: oklch(0.31 0.085 30);
+  --destructive-foreground: oklch(0.94 0.004 34);
+  --border:      oklch(0.35 0.078 155);
+  --input:       oklch(0.30 0.068 155);
+  --ring:        oklch(0.72 0.135 83);
+  --chart-1:     oklch(0.72 0.135 83);
+  --chart-2:     oklch(0.55 0.115 155);
+  --chart-3:     oklch(0.60 0.100 180);
+  --chart-4:     oklch(0.82 0.145 83);
+  --chart-5:     oklch(0.65 0.100 155);
 }
 
 @theme inline {
@@ -65,6 +109,7 @@ html {
   --color-wedding-gold: var(--wedding-gold);
   --color-wedding-sage: var(--wedding-sage);
   --color-wedding-charcoal: var(--wedding-charcoal);
+  --color-wedding-forest: var(--wedding-forest);
   --color-wedding-glass: var(--wedding-glass);
   --color-wedding-glass-border: var(--wedding-glass-border);
   --color-wedding-glow: var(--wedding-glow);
@@ -98,8 +143,6 @@ html {
 
 body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  background: var(--wedding-ivory);
-  color: var(--wedding-charcoal);
   overflow-x: hidden;
 }
 
@@ -475,7 +518,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--wedding-ivory);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {

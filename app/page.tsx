@@ -205,7 +205,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-wedding-ivory" role="main" aria-label="Wedding celebration website">
+    <main className="relative min-h-screen bg-background" role="main" aria-label="Wedding celebration website">
       {/* JSON-LD Structured Data for Search Engines */}
       <script
         type="application/ld+json"
@@ -243,7 +243,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-40"
           style={{
-            background: "linear-gradient(180deg, transparent 0%, rgba(250, 248, 245, 0.6) 50%, transparent 100%)",
+            background: "linear-gradient(180deg, transparent 0%, var(--wedding-glass) 50%, transparent 100%)",
           }}
         />
         <div className="relative z-10">
@@ -332,7 +332,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            background: "radial-gradient(ellipse at 30% 50%, rgba(200, 169, 81, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse at 30% 50%, var(--wedding-glow) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, var(--wedding-glow) 0%, transparent 60%)",
           }}
         />
         <div className="relative z-10">
@@ -360,7 +360,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            background: "radial-gradient(ellipse at 50% 50%, rgba(200, 169, 81, 0.05) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at 50% 50%, var(--wedding-glow) 0%, transparent 70%)",
           }}
         />
         <div className="relative z-10">

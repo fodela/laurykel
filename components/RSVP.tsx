@@ -121,7 +121,7 @@ export function RSVP() {
                         id="name"
                         name="name"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-background/50 px-4 py-3 text-foreground placeholder:text-foreground/50 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="Jane Doe"
                     />
                 </div>
@@ -139,7 +139,7 @@ export function RSVP() {
                         id="email"
                         name="email"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-background/50 px-4 py-3 text-foreground placeholder:text-foreground/50 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="jane@example.com"
                     />
                 </div>
@@ -157,7 +157,7 @@ export function RSVP() {
                         id="phone"
                         name="phone"
                         required
-                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full rounded-lg border border-wedding-gold/10 bg-background/50 px-4 py-3 text-foreground placeholder:text-foreground/50 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="+1 (555) 123-4567"
                     />
                 </div>
@@ -174,7 +174,7 @@ export function RSVP() {
                         id="questions"
                         name="questions"
                         rows={4}
-                        className="input-glow w-full resize-none rounded-lg border border-wedding-gold/10 bg-wedding-ivory/50 px-4 py-3 text-wedding-charcoal placeholder:text-wedding-charcoal/60 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
+                        className="input-glow w-full resize-none rounded-lg border border-wedding-gold/10 bg-background/50 px-4 py-3 text-foreground placeholder:text-foreground/50 transition-all duration-300 focus:border-wedding-gold/30 focus:outline-none"
                         placeholder="Any dietary restrictions, accessibility needs, or questions for us..."
                     />
                 </div>
