@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
@@ -41,30 +41,14 @@ function ThemeToggle() {
 }
 
 export function Navigation() {
-    const { scrollY } = useScroll();
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
-    const navBg = useTransform(
-        scrollY,
-        [0, 200],
-        ["rgba(21, 83, 50, 0)", "rgba(21, 83, 50, 0.92)"]
-    );
-
-    const navBlur = useTransform(
-        scrollY,
-        [0, 200],
-        ["blur(0px)", "blur(20px)"]
-    );
-
-    const borderOpacity = useTransform(
-        scrollY,
-        [0, 200],
-        ["rgba(201, 168, 76, 0)", "rgba(201, 168, 76, 0.25)"]
-    );
-
-    // Close mobile menu on scroll
     useEffect(() => {
-        const handleScroll = () => isOpen && setIsOpen(false);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 60);
+            if (isOpen) setIsOpen(false);
+        };
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, [isOpen]);
@@ -77,14 +61,12 @@ export function Navigation() {
                 transition={{ duration: 0.8, delay: 2.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="fixed top-0 right-0 left-0 z-[70]"
             >
-                <motion.div
-                    className="flex items-center justify-between border-b px-6 py-3 sm:py-4 sm:px-10"
-                    style={{
-                        backgroundColor: navBg,
-                        backdropFilter: navBlur,
-                        WebkitBackdropFilter: navBlur,
-                        borderColor: borderOpacity,
-                    }}
+                <div
+                    className={`flex items-center justify-between border-b px-6 py-3 transition-all duration-500 sm:py-4 sm:px-10 ${
+                        isScrolled
+                            ? "border-wedding-gold/20 bg-background/90 backdrop-blur-xl"
+                            : "border-transparent bg-transparent"
+                    }`}
                 >
                     {/* Logo / Monogram */}
                     <motion.span
@@ -96,7 +78,7 @@ export function Navigation() {
                         D&amp;L
                     </motion.span>
 
-                    {/* Desktop Nav — centered */}
+                    {/* Desktop Nav */}
                     <div className="hidden items-center gap-8 sm:flex md:gap-10">
                         {navItems.map((item, index) => (
                             <motion.div
@@ -107,7 +89,7 @@ export function Navigation() {
                             >
                                 <Link
                                     href={item.href}
-                                    className="group relative font-sans text-[11px] uppercase tracking-[0.22em] text-white/70 transition-colors duration-300 hover:text-wedding-gold"
+                                    className="group relative font-sans text-[11px] uppercase tracking-[0.22em] text-foreground/60 transition-colors duration-300 hover:text-wedding-gold"
                                 >
                                     {item.name}
                                     <span className="absolute -bottom-1 left-0 h-px w-0 bg-wedding-gold transition-all duration-300 group-hover:w-full" />
@@ -143,12 +125,12 @@ export function Navigation() {
                             />
                         </button>
                     </div>
-                </motion.div>
+                </div>
             </motion.nav>
 
             {/* Mobile Menu Overlay */}
             <motion.div
-                className="fixed inset-0 z-[65] flex flex-col items-center justify-center gap-8 bg-wedding-forest/97 backdrop-blur-xl sm:hidden"
+                className="fixed inset-0 z-[65] flex flex-col items-center justify-center gap-8 bg-background/97 backdrop-blur-xl sm:hidden"
                 initial={false}
                 animate={isOpen ? { opacity: 1, pointerEvents: "auto" as const } : { opacity: 0, pointerEvents: "none" as const }}
                 transition={{ duration: 0.3 }}
@@ -163,7 +145,7 @@ export function Navigation() {
                         <Link
                             href={item.href}
                             onClick={() => setIsOpen(false)}
-                            className="font-sans text-xl tracking-[0.25em] uppercase text-white/70 transition-colors hover:text-wedding-gold"
+                            className="font-sans text-xl tracking-[0.25em] uppercase text-foreground/70 transition-colors hover:text-wedding-gold"
                         >
                             {item.name}
                         </Link>

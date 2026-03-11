@@ -12,65 +12,53 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-wedding-forest">
-            {/* Corner-positioned Portrait Backgrounds */}
+        <section className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-background">
+            {/* Portrait Backgrounds */}
             <div className="absolute inset-0 z-0">
                 {showMarquee && (
                     <>
-                        {/* Delali Portrait - Left Full Height */}
+                        {/* Delali Portrait - Left */}
                         <motion.div
                             initial={{ opacity: 0, scale: 1.1, x: -50 }}
                             animate={{ opacity: 0.85, scale: 1, x: 0 }}
-                            transition={{
-                                duration: 1.2,
-                                delay: 0.3,
-                                ease: [0.25, 0.46, 0.45, 0.94],
-                            }}
-                            className="absolute top-0 left-0 max-h-[98vh] h-full w-[30vw] sm:w-[32vw] lg:w-[30vw]"
+                            transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                            className="absolute top-0 left-0 h-full w-[38vw] overflow-hidden sm:w-[40vw] lg:w-[42vw]"
                         >
-                            <div className="relative h-full w-full">
-                                <picture>
-                                    <source media="(max-width: 640px)" srcSet="/delali-mobile.webp" type="image/webp" />
-                                    <source srcSet="/delali-optimized.webp" type="image/webp" />
-                                    <img
-                                        src="/delali-optimized.jpg"
-                                        alt="Delali Dogbevi"
-                                        loading="eager"
-                                        decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
-                                        style={{ width: '100%', height: '100%' }}
-                                    />
-                                </picture>
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-transparent via-50% to-wedding-forest/90" />
-                            </div>
+                            <picture>
+                                <source media="(max-width: 640px)" srcSet="/delali-mobile.webp" type="image/webp" />
+                                <source srcSet="/delali-optimized.webp" type="image/webp" />
+                                <img
+                                    src="/delali-optimized.jpg"
+                                    alt="Delali Dogbevi"
+                                    loading="eager"
+                                    decoding="async"
+                                    className="h-full w-full object-cover object-center outline-none animate-ken-burns"
+                                />
+                            </picture>
+                            {/* Fade toward center */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent from-20% via-transparent via-50% to-background" />
                         </motion.div>
 
-                        {/* Laura Portrait - Right Full Height */}
+                        {/* Laura Portrait - Right */}
                         <motion.div
                             initial={{ opacity: 0, scale: 1.1, x: 50 }}
                             animate={{ opacity: 0.85, scale: 1, x: 0 }}
-                            transition={{
-                                duration: 1.2,
-                                delay: 0.5,
-                                ease: [0.25, 0.46, 0.45, 0.94],
-                            }}
-                            className="absolute top-0 right-0 max-h-[98vh] h-full w-[30vw] sm:w-[32vw] lg:w-[30vw]"
+                            transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                            className="absolute top-0 right-0 h-full w-[38vw] overflow-hidden sm:w-[40vw] lg:w-[42vw]"
                         >
-                            <div className="relative h-full w-full">
-                                <picture>
-                                    <source media="(max-width: 640px)" srcSet="/laura-mobile.webp" type="image/webp" />
-                                    <source srcSet="/laura-optimized.webp" type="image/webp" />
-                                    <img
-                                        src="/laura-optimized.jpg"
-                                        alt="Laura Bosompem"
-                                        loading="eager"
-                                        decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover object-center animate-ken-burns"
-                                        style={{ width: '100%', height: '100%' }}
-                                    />
-                                </picture>
-                                <div className="absolute inset-0 bg-gradient-to-l from-transparent from-30% via-transparent via-50% to-wedding-forest/90" />
-                            </div>
+                            <picture>
+                                <source media="(max-width: 640px)" srcSet="/laura-mobile.webp" type="image/webp" />
+                                <source srcSet="/laura-optimized.webp" type="image/webp" />
+                                <img
+                                    src="/laura-optimized.jpg"
+                                    alt="Laura Bosompem"
+                                    loading="eager"
+                                    decoding="async"
+                                    className="h-full w-full object-cover object-center outline-none animate-ken-burns"
+                                />
+                            </picture>
+                            {/* Fade toward center */}
+                            <div className="absolute inset-0 bg-gradient-to-l from-transparent from-20% via-transparent via-50% to-background" />
                         </motion.div>
                     </>
                 )}
@@ -108,9 +96,9 @@ export function Hero() {
                 </svg>
             </motion.div>
 
-            {/* Main content — always on dark forest bg, so white/gold text */}
+            {/* Main content */}
             <div className="z-10 flex flex-col items-center gap-5 p-4 pt-8 text-center sm:gap-8 sm:pt-12">
-                <p className="hero-fade-up delay-0 font-sans text-xs uppercase tracking-[0.3em] font-medium text-white/80 sm:text-sm">
+                <p className="hero-fade-up delay-0 font-sans text-xs uppercase tracking-[0.3em] font-medium text-wedding-sage/60 sm:text-sm">
                     You are invited to the wedding of
                 </p>
 
@@ -131,17 +119,17 @@ export function Hero() {
                 <div className="hero-line-grow delay-250 gold-line" style={{ height: 1, width: 150 }} />
 
                 <div className="hero-fade-up delay-250 flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
-                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-white/80 sm:text-base">
+                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-wedding-charcoal/70 sm:text-base">
                         SAT &middot; MARCH 14 &middot; 2026
                     </span>
                     <span className="hidden h-1.5 w-1.5 rounded-full bg-wedding-gold sm:block" />
-                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-white/80 sm:text-base">
+                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-wedding-charcoal/70 sm:text-base">
                         PIWC, OBUASI
                     </span>
                 </div>
 
                 <blockquote className="hero-fade-up delay-300 mt-4 max-w-md text-center">
-                    <p className="font-serif italic text-lg leading-relaxed text-white/70 sm:text-xl">
+                    <p className="font-serif italic text-lg leading-relaxed text-wedding-charcoal/60 sm:text-xl">
                         &ldquo;He who finds a wife finds a good thing and obtains favor from the LORD&rdquo;
                     </p>
                     <cite className="mt-2 block font-sans text-xs uppercase tracking-widest text-wedding-gold/80 not-italic">
