@@ -102,37 +102,40 @@ export function Hero() {
                     You are invited to the wedding of
                 </p>
 
+                {/* Gold ornamental line */}
                 <div className="hero-line-grow delay-100 gold-line" style={{ height: 1, width: 100 }} />
 
-                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif italic text-6xl font-light leading-tight tracking-tighter sm:text-8xl md:text-9xl lg:text-[10rem]">
+                {/* Names */}
+                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
                     Delali
                 </h1>
 
-                <span className="hero-fade-in delay-200 font-serif text-3xl text-wedding-gold/80 sm:text-4xl">
+                <span className="hero-fade-in delay-200 font-serif text-3xl text-wedding-gold sm:text-4xl">
                     &
                 </span>
 
-                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif italic text-6xl font-light leading-tight tracking-tighter sm:text-8xl md:text-9xl lg:text-[10rem]">
-                    Laura.
+                <h1 className="hero-scale-in delay-150 text-wedding-gold font-serif text-5xl font-light leading-tight tracking-tight sm:text-7xl md:text-8xl lg:text-9xl">
+                    Laura
                 </h1>
 
+                {/* Gold ornamental line */}
                 <div className="hero-line-grow delay-250 gold-line" style={{ height: 1, width: 150 }} />
 
+                {/* Date & Venue */}
                 <div className="hero-fade-up delay-250 flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
-                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-wedding-charcoal/70 sm:text-base">
+                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-pale-gold/80 sm:text-base">
                         SAT &middot; MARCH 14 &middot; 2026
                     </span>
                     <span className="hidden h-1.5 w-1.5 rounded-full bg-wedding-gold sm:block" />
-                    <span className="font-sans font-medium uppercase text-sm tracking-[0.2em] text-wedding-charcoal/70 sm:text-base">
+                    <span className="font-mono text-sm tracking-[0.2em] text-wedding-pale-gold/80 sm:text-base">
                         PIWC, OBUASI
                     </span>
                 </div>
 
+                {/* Bible Verse */}
                 <blockquote className="hero-fade-up delay-300 mt-4 max-w-md text-center">
-                    <p className="font-serif italic text-lg leading-relaxed text-wedding-charcoal/60 sm:text-xl">
-                        &ldquo;He who finds a wife finds a good thing and obtains favor from the LORD&rdquo;
-                    </p>
-                    <cite className="mt-2 block font-sans text-xs uppercase tracking-widest text-wedding-gold/80 not-italic">
+
+                    <cite className="mt-2 block font-mono text-xs tracking-widest text-wedding-gold/60 not-italic">
                         PROVERBS 18:22
                     </cite>
                 </blockquote>
