@@ -26,9 +26,9 @@ export function FloatingParticles() {
             size: Math.random() * 2.5 + 0.5,
             speedX: (Math.random() - 0.5) * 0.3,
             speedY: -(Math.random() * 0.2 + 0.05),
-            opacity: Math.random() * 0.5 + 0.1,
+            opacity: Math.random() * 0.4 + 0.1,
             opacitySpeed: (Math.random() - 0.5) * 0.005,
-            hue: Math.random() * 30 + 35, // 35-65 range for gold variations
+            hue: Math.random() * 16 + 42, // 42-58 range, tighter refined gold
         };
     }, []);
 
@@ -51,7 +51,7 @@ export function FloatingParticles() {
         resize();
 
         // Initialize particles
-        const particleCount = Math.min(60, Math.floor(window.innerWidth / 20));
+        const particleCount = Math.min(40, Math.floor(window.innerWidth / 20));
         particlesRef.current = Array.from({ length: particleCount }, () =>
             createParticle(canvas.width, canvas.height)
         );
@@ -75,7 +75,7 @@ export function FloatingParticles() {
 
                 // Update opacity (twinkle)
                 particle.opacity += particle.opacitySpeed;
-                if (particle.opacity <= 0.05 || particle.opacity >= 0.6) {
+                if (particle.opacity <= 0.05 || particle.opacity >= 0.5) {
                     particle.opacitySpeed *= -1;
                 }
 
@@ -103,7 +103,7 @@ export function FloatingParticles() {
                 // Glow effect for larger particles
                 if (particle.size > 1.5) {
                     ctx.beginPath();
-                    ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+                    ctx.arc(particle.x, particle.y, particle.size * 4, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.opacity * 0.15})`;
                     ctx.fill();
                 }

@@ -299,29 +299,35 @@ export default function Home() {
             {/* Traditional Wedding */}
             <DetailCard
               title="Traditional Wedding"
+              date="Sat, 14 March 2026"
               time="7:00 AM"
               location="Kokotuasi, Obuasi"
               venue="Mr. Bosompem's House"
               icon="🎊"
               delay={0}
+              mapUrl="https://maps.app.goo.gl/eyU7hW2yGcLM5ake9?g_st=aw"
             />
             {/* White Wedding */}
             <DetailCard
               title="White Wedding"
+              date="Sat, 14 March 2026"
               time="1:00 PM"
               location="PIWC, Obuasi"
               venue="Kunka New Site"
               icon="💒"
               delay={0.15}
+              mapUrl="https://maps.app.goo.gl/eyU7hW2yGcLM5ake9?g_st=aw"
             />
             {/* Thanks Giving */}
             <DetailCard
               title="Thanks Giving"
+              date="Sun, 15 March 2026"
               time="8:00 AM"
               location="PIWC, Obuasi"
               venue="Kunka New Site"
               icon="🙏"
               delay={0.3}
+              mapUrl="https://maps.app.goo.gl/eyU7hW2yGcLM5ake9?g_st=aw"
             />
           </div>
         </div>

@@ -24,16 +24,16 @@ html {
 
 :root {
   /* ── Wedding Palette ── */
-  --wedding-ivory: #FAF8F5;
-  --wedding-gold: #C9A84C;
+  --wedding-ivory: #F8F3EB;
+  --wedding-gold: #B8924A;
   --wedding-sage: #6B9A78;
   --wedding-charcoal: #145232;
   --wedding-forest: #155332;
   /* always forest green — hero bg, nav glass */
-  --wedding-glass: rgba(250, 248, 245, 0.65);
-  --wedding-glass-border: rgba(201, 168, 76, 0.40);
-  --wedding-glow: rgba(201, 168, 76, 0.25);
-  --wedding-pale-gold: #E8D5A3;
+  --wedding-glass: rgba(248, 243, 235, 0.65);
+  --wedding-glass-border: rgba(184, 146, 74, 0.40);
+  --wedding-glow: rgba(184, 146, 74, 0.25);
+  --wedding-pale-gold: #E0C885;
 
   /* ── Animation Timing ── */
   --ease-elegant: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -46,7 +46,7 @@ html {
 
   /* ── Shadcn Theme ── */
   --radius: 1rem;
-  --background: oklch(0.98 0.006 90);
+  --background: oklch(0.96 0.012 75);
   --foreground: oklch(0.22 0.09 155);
   --card: oklch(0.97 0.005 90);
   --card-foreground: oklch(0.22 0.09 155);
@@ -73,38 +73,37 @@ html {
 }
 
 .dark {
-  /* ── Wedding Palette (dark) ── */
+  /* ── Wedding Palette (dark) — deep warm midnight ── */
   --wedding-ivory: #FAF8F5;
-  --wedding-gold: #D4B85A;
-  --wedding-sage: #7AAB8A;
-  --wedding-charcoal: #FAF8F5;
-  --wedding-forest: #155332;
-  /* always forest green — hero bg, nav glass */
-  --wedding-glass: rgba(12, 48, 32, 0.75);
-  --wedding-glass-border: rgba(201, 168, 76, 0.35);
-  --wedding-glow: rgba(201, 168, 76, 0.30);
-  --wedding-pale-gold: #E8C878;
+  --wedding-gold: #D4AF6A;
+  --wedding-pale-gold: #E8CC8A;
+  --wedding-sage: #8AB89A;
+  --wedding-charcoal: #F0EBE0;
+  --wedding-forest: #1C1410;
+  --wedding-glass: rgba(18, 14, 10, 0.82);
+  --wedding-glass-border: rgba(212, 175, 106, 0.22);
+  --wedding-glow: rgba(212, 175, 106, 0.18);
 
-  --background: oklch(0.22 0.075 155);
-  --foreground: oklch(0.97 0.006 90);
-  --card: oklch(0.27 0.075 155);
-  --card-foreground: oklch(0.97 0.006 90);
-  --popover: oklch(0.30 0.068 155);
-  --popover-foreground: oklch(0.75 0.012 90);
-  --primary: oklch(0.72 0.135 83);
-  --primary-foreground: oklch(0.22 0.075 155);
-  --secondary: oklch(0.30 0.068 155);
-  --secondary-foreground: oklch(0.97 0.005 90);
-  --muted: oklch(0.26 0.068 155);
-  --muted-foreground: oklch(0.72 0.015 90);
-  --accent: oklch(0.33 0.072 155);
-  --accent-foreground: oklch(0.97 0.005 90);
+  --background: oklch(0.09 0.010 55);
+  --foreground: oklch(0.95 0.008 80);
+  --card: oklch(0.13 0.012 55);
+  --card-foreground: oklch(0.93 0.008 80);
+  --popover: oklch(0.15 0.010 55);
+  --popover-foreground: oklch(0.78 0.012 80);
+  --primary: oklch(0.72 0.120 75);
+  --primary-foreground: oklch(0.09 0.010 55);
+  --secondary: oklch(0.18 0.015 55);
+  --secondary-foreground: oklch(0.90 0.008 80);
+  --muted: oklch(0.16 0.012 55);
+  --muted-foreground: oklch(0.65 0.015 75);
+  --accent: oklch(0.20 0.018 60);
+  --accent-foreground: oklch(0.92 0.008 80);
   --destructive: oklch(0.31 0.085 30);
   --destructive-foreground: oklch(0.94 0.004 34);
-  --border: oklch(0.35 0.078 155);
-  --input: oklch(0.30 0.068 155);
-  --ring: oklch(0.72 0.135 83);
-  --chart-1: oklch(0.72 0.135 83);
+  --border: oklch(0.22 0.018 65);
+  --input: oklch(0.16 0.012 55);
+  --ring: oklch(0.72 0.120 75);
+  --chart-1: oklch(0.72 0.120 75);
   --chart-2: oklch(0.55 0.115 155);
   --chart-3: oklch(0.60 0.100 180);
   --chart-4: oklch(0.82 0.145 83);
@@ -247,11 +246,11 @@ body {
 
   0%,
   100% {
-    border-color: rgba(200, 169, 81, 0.15);
+    box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.08), 0 4px 24px rgba(212, 175, 106, 0.06);
   }
 
   50% {
-    border-color: rgba(200, 169, 81, 0.35);
+    box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.22), 0 8px 40px rgba(212, 175, 106, 0.14);
   }
 }
 
@@ -392,9 +391,9 @@ body {
   /* Glassmorphism card */
   .glass-card {
     background: var(--wedding-glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(200, 169, 81, 0.12);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid var(--wedding-glass-border);
   }
 
   /* Gold glow border */

@@ -129,9 +129,9 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lato.variable} ${greatVibes.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <svg
-            className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03]"
+            className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.045]"
             xmlns="http://www.w3.org/2000/svg"
           >
             <filter id="noiseFilter">
