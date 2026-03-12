@@ -8,6 +8,7 @@ import { Gallery } from "@/components/Gallery";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { SectionDivider } from "@/components/SectionDivider";
 import { TextShimmer } from "@/components/TextShimmer";
+import DetailCard from "@/components/DetailCard";
 
 export default function Home() {
   const eventJsonLd = {
@@ -262,13 +263,15 @@ export default function Home() {
           <Timeline />
 
           {/* Special Note of Gratitude */}
-          <div className="mx-auto mt-20 max-w-3xl px-6 text-center">
-            <h3 className="mb-6 font-serif text-2xl italic text-wedding-gold/80">
-              A Special Note of Gratitude
-            </h3>
-            <p className="font-heading text-lg leading-relaxed text-wedding-charcoal/60">
-              Laura and Particle want to say a huge thank you to the amazing community that facilitated this journey—their bosses, teachers, spiritual leaders, parents, HR, friends, and colleagues. You helped write this story. They can’t wait to celebrate with you!
-            </p>
+          <div className="mx-auto mt-20 max-w-2xl px-6">
+            <div className="border-l-2 border-wedding-gold/30 pl-6 text-left">
+              <h3 className="mb-4 font-serif text-xl italic text-wedding-gold/80">
+                A Special Note of Gratitude
+              </h3>
+              <p className="font-heading text-base leading-relaxed text-wedding-charcoal/55 italic">
+                Laura and Particle want to say a huge thank you to the amazing community that facilitated this journey—their bosses, teachers, spiritual leaders, parents, HR, friends, and colleagues. You helped write this story. They can’t wait to celebrate with you!
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -399,11 +402,14 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative border-t border-wedding-gold/5 py-16 text-center" role="contentinfo">
-        <div className="mb-4 font-serif text-lg text-wedding-charcoal/60">
+        <div className="mb-4 font-script text-4xl text-wedding-gold/70">
           Delali & Laura
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-wedding-charcoal/60">
           &copy; 2026 &middot; March 14th &middot; Obuasi, Ghana
+        </p>
+        <p className="mt-2 font-serif text-xs italic text-wedding-charcoal/40">
+          "He who finds a wife finds what is good." — Proverbs 18:22
         </p>
         <div className="mx-auto mt-6 gold-line" style={{ width: 60, height: 1 }} aria-hidden="true" />
       </footer>
@@ -412,45 +418,3 @@ export default function Home() {
 }
 
 /* Detail Card Component (inline since it's page-specific) */
-function DetailCard({
-  title,
-  time,
-  location,
-  venue,
-  icon,
-  delay,
-}: {
-  title: string;
-  time: string;
-  location: string;
-  venue: string;
-  icon: string;
-  delay: number;
-}) {
-  return (
-    <article className="group">
-      <div
-        className="glass-card glow-border rounded-2xl p-8 transition-all duration-500 hover:border-wedding-gold/25"
-        style={{ animationDelay: `${delay}s` }}
-      >
-        <div className="mb-4 text-3xl" role="img" aria-label={`${title} icon`}>
-          {icon}
-        </div>
-        <h3 className="mb-4 font-serif text-xl text-wedding-charcoal">
-          {title}
-        </h3>
-        <div className="space-y-1">
-          <p className="font-mono text-sm text-wedding-gold">
-            <time dateTime={time}>{time}</time>
-          </p>
-          <p className="text-sm text-wedding-charcoal/60" itemProp="addressLocality">
-            {location}
-          </p>
-          <p className="text-sm text-wedding-charcoal/60" itemProp="name">
-            {venue}
-          </p>
-        </div>
-      </div>
-    </article>
-  );
-}

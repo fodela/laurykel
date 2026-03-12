@@ -95,6 +95,28 @@ export function Hero() {
                     <path d="M0 0 L30 0 C15 8, 8 15, 0 30 Z" stroke="var(--wedding-gold)" strokeWidth="0.3" fill="none" />
                 </svg>
             </motion.div>
+            <motion.div
+                className="absolute top-8 right-8 z-[2] h-20 w-20 rotate-90 opacity-20 sm:h-32 sm:w-32"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 0.2, scale: 1 }}
+                transition={{ duration: 1.5, delay: 1.5 }}
+            >
+                <svg viewBox="0 0 100 100" fill="none" className="h-full w-full">
+                    <path d="M0 0 L50 0 C30 10, 10 30, 0 50 Z" stroke="var(--wedding-gold)" strokeWidth="0.5" fill="none" />
+                    <path d="M0 0 L30 0 C15 8, 8 15, 0 30 Z" stroke="var(--wedding-gold)" strokeWidth="0.3" fill="none" />
+                </svg>
+            </motion.div>
+            <motion.div
+                className="absolute bottom-8 left-8 z-[2] h-20 w-20 -rotate-90 opacity-20 sm:h-32 sm:w-32"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 0.2, scale: 1 }}
+                transition={{ duration: 1.5, delay: 1.5 }}
+            >
+                <svg viewBox="0 0 100 100" fill="none" className="h-full w-full">
+                    <path d="M0 0 L50 0 C30 10, 10 30, 0 50 Z" stroke="var(--wedding-gold)" strokeWidth="0.5" fill="none" />
+                    <path d="M0 0 L30 0 C15 8, 8 15, 0 30 Z" stroke="var(--wedding-gold)" strokeWidth="0.3" fill="none" />
+                </svg>
+            </motion.div>
 
             {/* Main content */}
             <div className="z-10 flex flex-col items-center gap-5 p-4 pt-8 text-center sm:gap-8 sm:pt-12">
@@ -134,7 +156,10 @@ export function Hero() {
 
                 {/* Bible Verse */}
                 <blockquote className="hero-fade-up delay-300 mt-4 max-w-md text-center">
-
+                    <p className="font-serif text-sm italic text-wedding-charcoal/50 sm:text-base">
+                        "He who finds a wife finds what is good<br />
+                        and receives favor from the LORD."
+                    </p>
                     <cite className="mt-2 block font-mono text-xs tracking-widest text-wedding-gold/60 not-italic">
                         PROVERBS 18:22
                     </cite>
